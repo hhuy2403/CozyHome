@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+
+  .content {
+    margin-left: 250px;
+    margin-top: 20px;
+  }
+
+  .navbar {
+    margin-left: 250px;
+  }
+
+  h2 {
+    color: #73879c;
+    font-size: 30px;
+    font-weight: 700;
+  }
+
+  .form-group label {
+    font-weight: bold;
+    color: #73879c;
+  }
+
+  .form-group input,
+  .form-group select {
+    width: 100%;
+  }
+
+  .form-group .unit {
+    width: 50px;
+    display: inline-block;
+    text-align: center;
+    line-height: 35px;
+  }
+
+  .header-btn {
+    margin-left: 5px;
+  }
+
+  .checkbox-inline input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+  .checkbox-inline {
+    margin-right: 20px;
+  }
+
+  .text-danger {
+    font-size: 12px;
+  }
+
+  @media (max-width: 992px) {
+    .content {
+      margin-left: 0;
+      margin-top: 20px;
+    }
+
+    .navbar {
+      margin-left: 0;
+    }
+
+    /* Điều chỉnh sidebar để ẩn khi màn hình nhỏ */
+    #sidebar-container {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .d-flex {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .d-flex .btn {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .navbar-toggler {
+      display: block;
+    }
+
+    .navbar {
+      margin-left: 0;
+    }
+
+    .content {
+      margin-left: 0;
+    }
+  }

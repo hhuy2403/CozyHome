@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cấu hình</title>
+    <link rel="stylesheet" href="/styles/landlord/sidebar.css">
+    <script src="/scripts/landlord/sidebar.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/styles/landlord/setting/index.css">
+</head>
+<body>
+<div id="sidebar-container"></div>
+<nav class="navbar navbar-light bg-light">
+    <div class="d-flex">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu"
+                aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="ml-auto d-flex">
+        <button class="btn btn-success header-btn">
+            <i class="fa fa-sticky-note"></i>
+        </button>
+        <button class="btn btn-primary header-btn ml-2">
+            <i class="fa fa-calculator"></i>
+        </button>
+    </div>
+</nav>
+<div class="content">
+    <div class="container-fluid">
+        <div class="header-content mb-4">
+            <h2>Cấu hình</h2>
+            <div class="save-buttons">
+                <button class="btn btn-secondary"><i class="fas fa-sync-alt"></i> Nhập lại</button>
+                <button class="btn btn-success"><i class="fas fa-save"></i> Lưu</button>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <ul class="nav nav-tabs tabs-custom" id="configTabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="chu-tro-tab" data-toggle="tab" href="#chu-tro" role="tab" aria-controls="chu-tro" aria-selected="true">Thông tin chủ trọ</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="email-tab" data-toggle="tab" href="#email" role="tab" aria-controls="email" aria-selected="false">Cấu hình email gửi</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="sms-tab" data-toggle="tab" href="#sms" role="tab" aria-controls="sms" aria-selected="false">Mẫu tin nhắn SMS</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="hopdong-tab" data-toggle="tab" href="#hopdong" role="tab" aria-controls="hopdong" aria-selected="false">Hợp đồng mẫu</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="diennuoc-tab" data-toggle="tab" href="#diennuoc" role="tab" aria-controls="diennuoc" aria-selected="false">Đơn giá điện nước bậc thang</a>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="configTabsContent">
+            <!-- Tab Pane 1: Thông tin chủ trọ -->
+            <div class="tab-pane fade show active" id="chu-tro" role="tabpanel" aria-labelledby="chu-tro-tab">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="hoTen">Họ tên</label>
+                            <input type="text" class="form-control" id="hoTen" value="Hoàng Văn Huy">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="cmnd">CMND/ CCCD số</label>
+                            <input type="text" class="form-control" id="cmnd" placeholder="Nhập số CMND/CCCD">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dienThoai">Điện thoại</label>
+                            <input type="text" class="form-control" id="dienThoai" value="0966955851">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="ngaySinh">Ngày sinh</label>
+                            <input type="date" class="form-control" id="ngaySinh">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="diaChi">Địa chỉ</label>
+                            <input type="text" class="form-control" id="diaChi" value="250 Kim Giang">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="tinhTP">Tỉnh/TP</label>
+                            <select id="tinhTP" class="form-control">
+                                <option selected>Hà Nội</option>
+                                <option>TP Hồ Chí Minh</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="quanHuyen">Quận/ huyện</label>
+                            <select id="quanHuyen" class="form-control">
+                                <option selected>Quận Hoàng Mai</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="phuongXa">Phường/ xã</label>
+                            <select id="phuongXa" class="form-control">
+                                <option selected>Phường Đại Kim</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="soTienPhong">Tiền phòng được tính mỗi lần</label>
+                            <div class="d-flex">
+                                <input type="number" class="form-control" id="soTienPhong" value="1">
+                                <select class="form-control ml-2">
+                                    <option selected>Tháng</option>
+                                    <option>Ngày</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6 d-flex align-items-center">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="tinhTienDichVu">
+                                <label class="form-check-label" for="tinhTienDichVu">Tính tiền dịch vụ tháng đầu theo số ngày</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Tab Pane 3: Cấu hình email gửi -->
+            <div class="tab-pane fade" id="email" role="tabpanel" aria-labelledby="email-tab">
+                <div class="radio-group">
+                    <input type="radio" id="systemEmail" name="emailType" checked>
+                    <label for="systemEmail">Dùng email hệ thống</label>
+
+                    <input type="radio" id="personalEmail" name="emailType">
+                    <label for="personalEmail">Dùng email cá nhân</label>
+                </div>
+            </div>
+
+            <!-- Tab Pane 4: Mẫu tin nhắn SMS -->
+            <div class="tab-pane fade" id="sms" role="tabpanel" aria-labelledby="sms-tab">
+                <div class="sms-template">
+                    <textarea id="smsTemplate">Xin chào @CustomerName, thông báo tiền nhà của bạn tháng @MonthYear là @TotalAmount, vui lòng thanh toán sớm, xin cảm ơn.</textarea>
+                </div>
+                <div class="note">Lưu ý: Các tham số có ký hiệu @ ở trước vui lòng không đổi.</div>
+            </div>
+
+            <!-- Tab Pane 5: Hợp đồng mẫu -->
+            <div class="tab-pane fade" id="hopdong" role="tabpanel" aria-labelledby="hopdong-tab">
+                <div class="contract-template">
+                    <textarea id="contractTemplate">
+HỢP ĐỒNG CHO THUÊ PHÒNG TRỌ
+Số: @ContractNo Ngày: @ContractDate
+- Căn cứ Bộ luật dân sự của nước Cộng hoà xã hội chủ nghĩa Việt Nam có hiệu lực từ ngày 01/01/2006;
+- Căn cứ nhu cầu và khả năng của hai bên,
+... (Nội dung hợp đồng mẫu tiếp tục...)
+                    </textarea>
+                </div>
+            </div>
+
+            <!-- Tab Pane 6: Đơn giá điện nước bậc thang -->
+            <div class="tab-pane fade" id="diennuoc" role="tabpanel" aria-labelledby="diennuoc-tab">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="useElectricity" checked>
+                    <label class="form-check-label" for="useElectricity">Tính tiền điện theo đơn giá bậc thang</label>
+                </div>
+
+                <table class="table billing-table">
+                    <thead>
+                    <tr>
+                        <th>Bậc</th>
+                        <th>Từ (kWh)</th>
+                        <th>Đến (kWh)</th>
+                        <th>Đơn giá (VND)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><input type="number" class="form-control" value="0"></td>
+                        <td><input type="number" class="form-control" value="50"></td>
+                        <td><input type="text" class="form-control" value="1,678" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><input type="number" class="form-control" value="51"></td>
+                        <td><input type="number" class="form-control" value="100"></td>
+                        <td><input type="text" class="form-control" value="1,734" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><input type="number" class="form-control" value="101"></td>
+                        <td><input type="number" class="form-control" value="200"></td>
+                        <td><input type="text" class="form-control" value="2,014" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><input type="number" class="form-control" value="201"></td>
+                        <td><input type="number" class="form-control" value="300"></td>
+                        <td><input type="text" class="form-control" value="2,536" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><input type="number" class="form-control" value="301"></td>
+                        <td><input type="number" class="form-control" value="400"></td>
+                        <td><input type="text" class="form-control" value="2,834" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td><input type="number" class="form-control" value="401"></td>
+                        <td><input type="number" class="form-control" value="999,999"></td>
+                        <td><input type="text" class="form-control" value="2,927" readonly></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<script src="/scripts/landlord/setting/index.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

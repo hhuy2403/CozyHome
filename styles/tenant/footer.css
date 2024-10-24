@@ -1,0 +1,139 @@
+/* General footer styles */
+.cozyhome-tenant-footer {
+    background-color: #fff;
+    color: white;
+    padding: 40px 0;
+    text-align: left;
+    border-top: 1px solid #dee2e6;
+    margin-top: 40px;
+}
+
+.cozyhome-footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+/* Footer section styles */
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-section h4 {
+    font-size: 18px;
+    color: #28a745;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.footer-section p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #000000;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #000000;
+}
+
+.footer-section ul li i {
+    margin-right: 8px;
+    color: #28a745;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: #000000;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #28a745;
+}
+
+/* Newsletter form */
+.footer-section.newsletter form {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-section.newsletter input[type="email"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    width: 92%;
+    font-size: 14px;
+    color: #343a40;
+}
+
+.footer-section.newsletter button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.footer-section.newsletter button:hover {
+    background-color: #218838;
+}
+
+/* Social media icons */
+.footer-section.socials .social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-section.socials a {
+    font-size: 24px;
+    color: #28a745;
+    transition: color 0.3s ease;
+}
+
+.footer-section.socials a:hover {
+    color: #218838;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 768px) {
+    .cozyhome-footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-section {
+        margin-bottom: 30px;
+    }
+
+    .footer-section.socials .social-icons {
+        justify-content: center;
+    }
+
+    .footer-section.newsletter form {
+        align-items: center;
+    }
+
+    .footer-section.newsletter input[type="email"] {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .footer-section.newsletter button {
+        width: 100%;
+        max-width: 200px;
+    }
+}

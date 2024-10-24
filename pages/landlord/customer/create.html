@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thêm khách thuê phòng</title>
+    <link rel="stylesheet" href="/styles/landlord/sidebar.css" />
+    <script src="/scripts/landlord/sidebar.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/styles/landlord/customer/create.css">
+  </head>
+  <body>
+    <div id="sidebar-container"></div>
+    <nav class="navbar navbar-light bg-light">
+      <div class="d-flex">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarMenu"
+          aria-controls="navbarMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="ml-auto d-flex">
+        <button class="btn btn-success header-btn">
+          <i class="fa fa-sticky-note"></i>
+        </button>
+        <button class="btn btn-primary header-btn ml-2">
+          <i class="fa fa-calculator"></i>
+        </button>
+      </div>
+    </nav>
+    <div class="content">
+      <div class="container-fluid">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h2><i class="fas fa-plus"></i> Thêm khách thuê phòng</h2>
+          <div class="btn-action">
+            <a href="/pages/landlord/room/index.html" class="btn btn-warning">
+              <i class="fas fa-arrow-left"></i> Quay về
+            </a>
+            <button class="btn btn-success">
+              <i class="fas fa-check"></i> Lưu
+            </button>
+          </div>
+        </div>
+
+        <!-- Tabs -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              id="info-tab"
+              data-toggle="tab"
+              href="#info"
+              role="tab"
+              >Thông tin khách thuê</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              id="services-tab"
+              data-toggle="tab"
+              href="#services"
+              role="tab"
+              >Dịch vụ</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              id="members-tab"
+              data-toggle="tab"
+              href="#members"
+              role="tab"
+              >Thành viên</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              id="contract-tab"
+              data-toggle="tab"
+              href="#contract"
+              role="tab"
+              >Hợp đồng</a
+            >
+          </li>
+        </ul>
+
+        <!-- Nội dung Tab -->
+        <div class="tab-content" id="myTabContent">
+          <!-- Tab Thông tin khách thuê -->
+          <div class="tab-pane fade" id="info" role="tabpanel">
+            <form>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="name">Họ và tên *</label>
+                    <input type="text" class="form-control" id="name" />
+                  </div>
+                  <div class="form-group">
+                    <label>Giới tính</label>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="gender"
+                        id="male"
+                        value="male"
+                        checked
+                      />
+                      <label class="form-check-label" for="male">Nam</label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="gender"
+                        id="female"
+                        value="female"
+                      />
+                      <label class="form-check-label" for="female">Nữ</label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="id_card">CMND/CCCD</label>
+                    <input type="text" class="form-control" id="id_card" />
+                  </div>
+                  <div class="form-group">
+                    <label for="phone1">Điện thoại 1</label>
+                    <input type="text" class="form-control" id="phone1" />
+                  </div>
+                  <div class="form-group">
+                    <label for="address">Địa chỉ thường trú</label>
+                    <input type="text" class="form-control" id="address" />
+                  </div>
+                  <div class="form-group">
+                    <label for="room">Thuê phòng số *</label>
+                    <select class="form-control" id="room">
+                      <option>1</option>
+                      <option>2</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="issue_date">Ngày cấp</label>
+                    <input type="date" class="form-control" id="issue_date" />
+                  </div>
+                  <div class="form-group">
+                    <label for="issue_place">Nơi cấp</label>
+                    <select class="form-control" id="issue_place">
+                      <option>Tỉnh/Thành phố</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" />
+                  </div>
+                  <div class="form-group">
+                    <label for="start_date">Ngày bắt đầu *</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="start_date"
+                      value="2024-10-13"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="payment_cycle">Kỳ thanh toán *</label>
+                    <select class="form-control" id="payment_cycle">
+                      <option>Kỳ 30</option>
+                      <option>Kỳ 15</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="payment_amount">Tiền phòng *</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="payment_amount"
+                      value="3000000"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="phone2">Điện thoại 2</label>
+                    <input type="text" class="form-control" id="phone2" />
+                  </div>
+                  <div class="form-group">
+                    <label for="dob">Ngày sinh</label>
+                    <input type="date" class="form-control" id="dob" />
+                  </div>
+                  <div class="form-group">
+                    <label for="place_of_birth">Nơi sinh</label>
+                    <select class="form-control" id="place_of_birth">
+                      <option>Tỉnh/Thành phố</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="deposit">Đặt cọc *</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="deposit"
+                      value="0"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="payment_times">Thanh toán mỗi lần</label>
+                    <select class="form-control" id="payment_times">
+                      <option>1</option>
+                      <option>2</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="referrer">Người giới thiệu</label>
+                    <input type="text" class="form-control" id="referrer" />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="notes">Ghi chú khác</label>
+                <textarea class="form-control" id="notes" rows="3"></textarea>
+              </div>
+              <div class="form-group">
+                <label>Hình ảnh</label>
+                <div class="upload-area">
+                  Kéo tệp tin cần upload thả vào đây
+                </div>
+              </div>
+              <p class="required">(*) Thông tin bắt buộc</p>
+            </form>
+          </div>
+
+          <!-- Tab Dịch vụ -->
+          <div class="tab-pane fade" id="services" role="tabpanel">
+            <div class="card-body">
+              <p class="required">
+                Lưu ý: Vui lòng chọn dịch vụ cho khách thuê. Nếu khách có chọn
+                dịch vụ thì khi tính tiền phòng phần mềm sẽ tự động tính các
+                khoản phí vào hóa đơn; ngược lại nếu không chọn phần mềm sẽ bỏ
+                qua.
+              </p>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Chọn</th>
+                    <th>Dịch vụ sử dụng</th>
+                    <th>Đơn giá (VNĐ)</th>
+                    <th>Số lượng</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><input type="checkbox" checked /></td>
+                    <td>Điện</td>
+                    <td>
+                      <input type="text" class="form-control" value="3,000" />
+                    </td>
+                    <td>
+                      <input type="number" class="form-control" value="1" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" checked /></td>
+                    <td>Nước</td>
+                    <td>
+                      <input type="text" class="form-control" value="20,000" />
+                    </td>
+                    <td>
+                      <input type="number" class="form-control" value="1" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" checked /></td>
+                    <td>Gửi xe máy</td>
+                    <td>
+                      <input type="text" class="form-control" value="80,000" />
+                    </td>
+                    <td>
+                      <input type="number" class="form-control" value="1" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" checked /></td>
+                    <td>Rác</td>
+                    <td>
+                      <input type="text" class="form-control" value="50,000" />
+                    </td>
+                    <td>
+                      <input type="number" class="form-control" value="1" />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Tab Thành viên -->
+          <div class="tab-pane fade" id="members" role="tabpanel">
+            <table class="table table-bordered mt-4" id="memberTable">
+              <thead>
+                <tr>
+                  <th>Họ tên</th>
+                  <th>Ngày sinh</th>
+                  <th>Giới tính</th>
+                  <th>CMND/CCCD</th>
+                  <th>Địa chỉ</th>
+                  <th>Điện thoại</th>
+                  <th>Số xe</th>
+                  <th>Ngày DKTT</th>
+                  <th>Hành động</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="text" class="form-control" /></td>
+                  <td><input type="date" class="form-control" /></td>
+                  <td>
+                    <label
+                      ><input type="radio" name="gender1" value="Nam" />
+                      Nam</label
+                    >
+                    <label
+                      ><input type="radio" name="gender1" value="Nữ" />
+                      Nữ</label
+                    >
+                  </td>
+                  <td><input type="text" class="form-control" /></td>
+                  <td><input type="text" class="form-control" /></td>
+                  <td><input type="text" class="form-control" /></td>
+                  <td><input type="text" class="form-control" /></td>
+                  <td><input type="date" class="form-control" /></td>
+                  <td>
+                    <button class="btn btn-danger remove-row">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <button class="btn btn-success" id="addRow">
+              <i class="fas fa-plus"></i>
+            </button>
+          </div>
+
+          <!-- Tab Hợp đồng -->
+          <div class="tab-pane fade" id="contract" role="tabpanel">
+            <form class="mt-4">
+              <div class="form-group">
+                <label for="contractNumber">Số hợp đồng</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="contractNumber"
+                  placeholder="Nhập số hợp đồng"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="startDate">Ngày bắt đầu</label>
+                <input type="date" class="form-control" id="startDate" />
+              </div>
+
+              <div class="form-group">
+                <label for="endDate">Ngày kết thúc</label>
+                <input type="date" class="form-control" id="endDate" />
+              </div>
+
+              <div class="form-group">
+                <label for="contractTerms">Điều khoản hợp đồng</label>
+                <textarea
+                  class="form-control"
+                  id="contractTerms"
+                  rows="5"
+                  placeholder="Nhập điều khoản hợp đồng"
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="contractFile">Tải lên hợp đồng đã ký</label>
+                <input
+                  type="file"
+                  class="form-control-file"
+                  id="contractFile"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/scripts/landlord/customer/create.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

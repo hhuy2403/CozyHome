@@ -1,0 +1,82 @@
+/* Assets Page */
+.cozyhome-assets-page {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+}
+
+.cozyhome-container {
+    max-width: 1000px;
+    margin-top: 100px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.cozyhome-assets-title {
+    font-size: 28px;
+    color: #28a745;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.cozyhome-assets-filter {
+    margin-bottom: 20px;
+}
+
+.cozyhome-assets-filter form {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.cozyhome-assets-filter input {
+    padding: 10px;
+    font-size: 14px;
+    width: 50%;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+}
+
+.cozyhome-assets-filter select {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+}
+
+.cozyhome-assets-list {
+    margin-top: 30px;
+}
+
+#assets-container {
+    border: 1px solid #dee2e6;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.asset-item {
+    border-bottom: 1px solid #dee2e6;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.asset-item:last-child {
+    border-bottom: none;
+}
+
+.asset-item strong {
+    color: #28a745;
+}
+
+.asset-item span {
+    color: #333;
+    font-size: 14px;
+}

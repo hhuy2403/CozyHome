@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CozyHome - Dashboard Admin</title>
+    <link rel="stylesheet" href="/styles/admin/header.css">
+    <link rel="stylesheet" href="/styles/admin/footer.css">
+    <link rel="stylesheet" href="/styles/admin/admin-dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="/scripts/admin/admin-dashboard.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body class="cozyhome-admin-dashboard-page">
+
+    <!-- Import Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <main class="cozyhome-main">
+        <div class="cozyhome-container">
+            <div class="cozyhome-admin-dashboard">
+                <h2 class="cozyhome-dashboard-title">
+                    <i class="fas fa-tachometer-alt"></i> Bảng Điều Khiển
+                </h2>
+                <div class="cozyhome-dashboard-cards">
+                    <div class="cozyhome-card">
+                        <h3><i class="fas fa-users"></i> Tổng Số Người Dùng</h3>
+                        <p id="totalUsers">0</p>
+                    </div>
+                    <div class="cozyhome-card">
+                        <h3><i class="fas fa-file-invoice-dollar"></i> Tổng Hóa Đơn Chưa Thanh Toán</h3>
+                        <p id="totalUnpaidBills">0</p>
+                    </div>
+                    <div class="cozyhome-card">
+                        <h3><i class="fas fa-balance-scale"></i> Tổng Công Nợ</h3>
+                        <p id="totalDebts">0 VND</p>
+                    </div>
+                    <div class="cozyhome-card">
+                        <h3><i class="fas fa-cogs"></i> Hợp Đồng Bảo Trì</h3>
+                        <p id="totalContracts">0</p>
+                    </div>
+                </div>
+
+                <div class="cozyhome-dashboard-section">
+                    <h3><i class="fas fa-chart-pie"></i> Biểu Đồ Thống Kê</h3>
+                    <canvas id="dashboardChart"></canvas>
+                </div>
+
+                <div class="cozyhome-dashboard-section">
+                    <h3><i class="fas fa-bell"></i> Thông Báo</h3>
+                    <ul id="notificationList">
+                        <!-- Các thông báo về công nợ sẽ được hiển thị tại đây -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Import Footer -->
+    <div id="footer-placeholder"></div>
+    <script src="/scripts/admin/header.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+
+</html>

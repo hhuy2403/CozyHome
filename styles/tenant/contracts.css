@@ -1,0 +1,85 @@
+/* Contracts Page */
+.cozyhome-contracts-page {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+}
+
+.cozyhome-container {
+    max-width: 1000px;
+    margin-top: 100px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.cozyhome-contracts-title {
+    font-size: 28px;
+    color: #28a745; /* Màu xanh lá cây */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.cozyhome-contracts-filter {
+    margin-bottom: 20px;
+}
+
+.filter-inputs {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.filter-inputs label {
+    font-size: 14px;
+    color: #343a40;
+}
+
+.filter-inputs input {
+    padding: 10px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.cozyhome-btn {
+    padding: 10px 20px;
+    background-color: #28a745; /* Màu xanh lá cây */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cozyhome-btn-primary {
+    background-color: #28a745; /* Màu xanh lá cây */
+}
+
+.cozyhome-btn:hover {
+    background-color: #218838; /* Màu xanh lá cây đậm hơn khi hover */
+}
+
+.cozyhome-contracts-list {
+    margin-top: 20px;
+}
+
+.contract-item {
+    border: 1px solid #dee2e6;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+.contract-item strong {
+    color: #28a745; /* Màu xanh lá cây */
+}
+
+.contract-item p {
+    margin: 5px 0;
+}

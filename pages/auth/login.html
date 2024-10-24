@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CozyHome - Đăng Nhập</title>
+    <link rel="stylesheet" href="/styles/auth/login.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script src="/scripts/auth/login.js" defer></script>
+  </head>
+
+  <body>
+    <header class="cozyhome-header">
+      <nav class="cozyhome-navbar">
+        <div class="cozyhome-logo">
+          <a href="../../index.html">
+            <i class="fas fa-home"></i>
+            &nbsp;CozyHome
+          </a>
+        </div>
+        <ul class="cozyhome-nav-links" id="navLinks">
+          <li>
+            <a href="../../index.html">
+              <i class="fas fa-home"></i>
+              Trang Chủ
+            </a>
+          </li>
+          <li>
+            <a href="register.html">
+              <i class="fas fa-user-plus"></i>
+              Đăng Ký
+            </a>
+          </li>
+        </ul>
+        <button class="cozyhome-nav-toggle" id="navToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </header>
+
+    <main class="cozyhome-main">
+      <div class="cozyhome-box">
+        <h2 class="cozyhome-title">Đăng Nhập</h2>
+        <form id="loginForm">
+          <div class="cozyhome-form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Nhập email"
+              
+            />
+          </div>
+          <div class="cozyhome-form-group">
+            <label for="password">Mật khẩu</label>
+            <div class="password-container">
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Nhập mật khẩu"
+                />
+                <button type="button" id="togglePassword" class="toggle-password">
+                    <i class="fas fa-eye"></i>
+                </button>
+            </div>
+        </div>
+        
+          <button type="submit" class="cozyhome-btn cozyhome-btn-primary">
+            <i class="fas fa-sign-in-alt"></i>
+            Đăng Nhập
+          </button>
+          <p class="cozyhome-forgot-password">
+            <a href="forgot-password.html">Quên mật khẩu?</a>
+          </p>
+          <p class="cozyhome-error" id="loginError"></p>
+          <p class="cozyhome-login-register">
+            Chưa có tài khoản?
+            <a href="register.html">Đăng ký ngay</a>
+            .
+          </p>
+        </form>
+      </div>
+    </main>
+
+    <!-- footer.html -->
+    <footer class="cozyhome-footer">
+      <div class="cozyhome-footer-content">
+        <div class="cozyhome-footer-columns">
+          <div class="cozyhome-footer-column">
+            <h3>
+              <i class="fas fa-building"></i>
+              CozyHome
+            </h3>
+            <p>
+              Quản lý nhà trọ hiệu quả, đơn giản hóa mọi thao tác cho quản trị
+              viên, chủ trọ và người thuê.
+            </p>
+            <div class="cozyhome-footer-address">
+              <p>
+                <i class="fas fa-map-marker-alt"></i>
+                123 Đường ABC, Quận XYZ, TP. Hồ Chí Minh
+              </p>
+              <p>
+                <i class="fas fa-phone-alt"></i>
+                0123 456 789
+              </p>
+              <p>
+                <i class="fas fa-envelope"></i>
+                contact@cozyhome.vn
+              </p>
+            </div>
+          </div>
+          <div class="cozyhome-footer-column">
+            <h3>
+              <i class="fas fa-link"></i>
+              Liên kết nhanh
+            </h3>
+            <ul class="cozyhome-footer-links">
+              <li>
+                <a href="#">
+                  <i class="fas fa-info-circle"></i>
+                  Giới thiệu
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fas fa-star"></i>
+                  Tính năng
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fas fa-phone-alt"></i>
+                  Liên hệ
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fas fa-file-alt"></i>
+                  Điều khoản sử dụng
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="cozyhome-footer-column">
+            <h3>
+              <i class="fas fa-share-alt"></i>
+              Theo dõi chúng tôi
+            </h3>
+            <div class="cozyhome-social-icons">
+              <a href="#" class="cozyhome-footer-link">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="cozyhome-footer-link">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="cozyhome-footer-link">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="cozyhome-footer-link">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+          <div class="cozyhome-footer-column">
+            <h3>
+              <i class="fas fa-envelope"></i>
+              Liên hệ nhanh
+            </h3>
+            <form action="#" class="cozyhome-footer-form">
+              <input type="text" placeholder="Họ và tên" required />
+              <input type="email" placeholder="Email" required />
+              <textarea placeholder="Tin nhắn" required></textarea>
+              <button type="submit" class="cozyhome-footer-submit-btn">
+                Gửi
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

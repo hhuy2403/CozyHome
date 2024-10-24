@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CozyHome - Quản Lý Bảo Trì</title>
+  <link rel="stylesheet" href="/styles/admin/header.css" />
+  <link rel="stylesheet" href="/styles/admin/footer.css" />
+  <link rel="stylesheet" href="/styles/admin/maintenance-management.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <script src="/scripts/admin/maintenance-management.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body class="cozyhome-maintenance-management-page">
+  <!-- Import Header -->
+  <div id="header-placeholder"></div>
+
+  <main class="cozyhome-main">
+    <div class="cozyhome-container">
+      <h2 class="cozyhome-maintenance-title">
+        <i class="fas fa-tools"></i>
+        Quản Lý Bảo Trì
+      </h2>
+
+      <div class="cozyhome-maintenance-section">
+        <h3>
+          <i class="fas fa-file-contract"></i>
+          Quản Lý Hợp Đồng Bảo Trì
+        </h3>
+        <div class="cozyhome-search">
+          <input type="text" id="contractSearch" placeholder="Tìm kiếm hợp đồng..." oninput="searchContract()" />
+        </div>
+        <button class="cozyhome-btn cozyhome-btn-primary" onclick="showCreateContractForm()">
+          <i class="fas fa-plus-circle"></i>
+          Tạo Hợp Đồng Bảo Trì
+        </button>
+        <div id="createContractForm" class="cozyhome-create-contract-form" style="display: none">
+          <h3>
+            <i class="fas fa-plus-circle"></i>
+            Tạo Hợp Đồng Bảo Trì Mới
+          </h3>
+          <label for="contractPartner">Đối tác:</label>
+          <input type="text" id="contractPartner" placeholder="Đối tác" required />
+          <label for="contractTerms">Điều khoản:</label>
+          <input type="text" id="contractTerms" placeholder="Điều khoản hợp đồng" required />
+          <label for="contractStartDate">Ngày bắt đầu:</label>
+          <input type="date" id="contractStartDate" required />
+          <label for="contractEndDate">Ngày kết thúc:</label>
+          <input type="date" id="contractEndDate" required />
+          <input type="hidden" id="contractIndex" />
+          <div class="cozyhome-form-actions">
+            <button class="cozyhome-btn cozyhome-btn-primary" onclick="createContract()">
+              <i class="fas fa-save"></i>
+              Lưu
+            </button>
+            <button class="cozyhome-btn cozyhome-btn-secondary" onclick="hideCreateContractForm()">
+              <i class="fas fa-times"></i>
+              Hủy
+            </button>
+          </div>
+        </div>
+
+        <table class="cozyhome-maintenance-table">
+          <thead>
+            <tr>
+              <th>Đối Tác</th>
+              <th>Điều Khoản</th>
+              <th>Ngày Bắt Đầu</th>
+              <th>Ngày Kết Thúc</th>
+              <th>Thao Tác</th>
+            </tr>
+          </thead>
+          <tbody id="contractList">
+            <!-- Danh sách hợp đồng sẽ được hiển thị tại đây -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cozyhome-maintenance-section">
+        <h3>
+          <i class="fas fa-calendar-check"></i>
+          Theo Dõi Lịch Bảo Trì
+        </h3>
+        <div class="cozyhome-search">
+          <input type="text" id="maintenanceSearch" placeholder="Tìm kiếm lịch bảo trì..."
+            oninput="searchMaintenance()" />
+        </div>
+        <button class="cozyhome-btn cozyhome-btn-primary" onclick="showCreateMaintenanceForm()">
+          <i class="fas fa-plus-circle"></i>
+          Tạo Lịch Bảo Trì
+        </button>
+        <div id="createMaintenanceForm" class="cozyhome-create-maintenance-form" style="display: none">
+          <h3>
+            <i class="fas fa-plus-circle"></i>
+            Tạo Lịch Bảo Trì Mới
+          </h3>
+          <label for="maintenanceDate">Ngày:</label>
+          <input type="date" id="maintenanceDate" required />
+          <label for="maintenanceType">Loại bảo trì:</label>
+          <input type="text" id="maintenanceType" placeholder="Loại Bảo Trì" required />
+          <label for="maintenanceDetails">Chi tiết:</label>
+          <textarea id="maintenanceDetails" placeholder="Chi Tiết Bảo Trì" rows="3" required></textarea>
+          <label for="maintenanceContract"></label>
+          <select id="maintenanceContract">
+            <option value="">Chọn Hợp Đồng Liên Quan</option>
+            <!-- Các hợp đồng sẽ được thêm vào đây -->
+          </select>
+          <input type="hidden" id="scheduleIndex" />
+          <div class="cozyhome-form-actions">
+            <button class="cozyhome-btn cozyhome-btn-primary" onclick="createMaintenance()">
+              <i class="fas fa-save"></i>
+              Lưu
+            </button>
+            <button class="cozyhome-btn cozyhome-btn-secondary" onclick="hideCreateMaintenanceForm()">
+              <i class="fas fa-times"></i>
+              Hủy
+            </button>
+          </div>
+        </div>
+
+        <table class="cozyhome-maintenance-table">
+          <thead>
+            <tr>
+              <th>Ngày</th>
+              <th>Loại Bảo Trì</th>
+              <th>Chi Tiết</th>
+              <th>Hợp Đồng</th>
+              <th>Thao Tác</th>
+            </tr>
+          </thead>
+          <tbody id="maintenanceScheduleList">
+            <!-- Danh sách lịch bảo trì sẽ được hiển thị tại đây -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- Import Footer -->
+  <div id="footer-placeholder"></div>
+
+  <script src="/scripts/admin/header.js" defer></script>
+  <script>
+    // Hàm để tải nội dung của header và footer từ các file riêng
+    document.addEventListener('DOMContentLoaded', function () {
+      fetch('header.html')
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById('header-placeholder').innerHTML = data;
+        });
+
+      fetch('footer.html')
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById('footer-placeholder').innerHTML = data;
+        });
+    });
+  </script>
+</body>
+
+</html>

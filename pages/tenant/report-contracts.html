@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CozyHome - Báo Cáo & Hợp Đồng</title>
+    <link rel="stylesheet" href="/styles/tenant/header.css">
+    <link rel="stylesheet" href="/styles/tenant/footer.css">
+    <link rel="stylesheet" href="/styles/tenant/report-contracts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="/scripts/tenant/report-contracts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="cozyhome-report-page">
+
+<!-- Import Header -->
+<div id="header-placeholder"></div>
+
+<!-- Main Content -->
+<main class="cozyhome-main">
+    <div class="cozyhome-container">
+        <div class="cozyhome-reports-contracts">
+            <h2 class="cozyhome-reports-title">
+                <i class="fas fa-file-alt"></i> Báo Cáo & Hợp Đồng
+            </h2>
+
+            <!-- Danh sách các thành viên trong phòng -->
+            <div class="cozyhome-room-members">
+                <h3><i class="fas fa-users"></i> Danh Sách Thành Viên Trong Phòng</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Họ Tên</th>
+                            <th>Số Điện Thoại</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody id="members-list">
+                        <!-- Dữ liệu sẽ được tải từ JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Báo cáo hư hỏng tài sản -->
+            <div class="cozyhome-damage-report">
+                <h3><i class="fas fa-exclamation-triangle"></i> Báo Cáo Vấn Đề</h3>
+                <form id="damage-report-form">
+                    <label for="reportDescription">Mô tả vấn đề:</label>
+                    <textarea id="reportDescription" placeholder="Nhập mô tả vấn đề..." rows="4"></textarea>
+
+                    <label for="reportType">Loại vấn đề:</label>
+                    <select id="reportType">
+                        <option value="asset-damage">Tài sản bị hư hỏng</option>
+                        <option value="maintenance">Cần bảo trì</option>
+                        <option value="other">Vấn đề khác</option>
+                    </select>
+
+                    <button type="button" class="cozyhome-btn cozyhome-btn-primary" onclick="submitReport()">
+                        <i class="fas fa-paper-plane"></i> Gửi Báo Cáo
+                    </button>
+                </form>
+            </div>
+
+            <!-- Danh sách hợp đồng -->
+            <div class="cozyhome-contracts">
+                <h3><i class="fas fa-file-contract"></i> Danh Sách Hợp Đồng</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Số Hợp Đồng</th>
+                            <th>Ngày Ký</th>
+                            <th>Ngày Hết Hạn</th>
+                            <th>Trạng Thái</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contracts-list">
+                        <!-- Dữ liệu sẽ được tải từ JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Import Footer -->
+<div id="footer-placeholder"></div>
+
+<!-- Kết nối JavaScript -->
+<script src="/scripts/tenant/header.js" defer></script>
+<script>
+    // Hàm để tải nội dung của header và footer từ các file riêng
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    });
+</script>
+</body>
+</html>

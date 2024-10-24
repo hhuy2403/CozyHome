@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CozyHome - Quản Lý Dịch Vụ</title>
+        <link rel="stylesheet" href="/styles/tenant/header.css" />
+        <link rel="stylesheet" href="/styles/tenant/footer.css" />
+        <link rel="stylesheet" href="/styles/tenant/services.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+        <script src="/scripts/tenant/services.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
+    <body class="cozyhome-services-page">
+        <!-- Import Header -->
+        <div id="header-placeholder"></div>
+
+        <!-- Main Content -->
+        <main class="cozyhome-main">
+            <div class="cozyhome-container">
+                <div class="cozyhome-services">
+                    <h2 class="cozyhome-services-title">
+                        <i class="fas fa-tachometer-alt"></i> Quản Lý Dịch Vụ Điện Nước
+                    </h2>
+
+                    <!-- Bảng hiển thị chỉ số điện, nước hàng tháng -->
+                    <div class="cozyhome-services-table">
+                        <h3><i class="fas fa-water"></i> Chỉ Số Điện, Nước Hàng Tháng</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Tháng</th>
+                                    <th>Chỉ Số Điện (kWh)</th>
+                                    <th>Chỉ Số Nước (m³)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="service-usage-tbody">
+                                <!-- Dữ liệu sẽ được tải từ JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Biểu đồ theo dõi chỉ số điện, nước -->
+                    <div class="cozyhome-services-chart">
+                        <h3><i class="fas fa-chart-line"></i> Biểu Đồ Theo Dõi Chỉ Số</h3>
+                        <canvas id="serviceChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Import Footer -->
+        <div id="footer-placeholder"></div>
+
+        <!-- Kết nối JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <!-- Thư viện Chart.js -->
+
+        <script src="/scripts/tenant/header.js" defer></script>
+        <script>
+            // Hàm để tải nội dung của header và footer từ các file riêng
+            document.addEventListener("DOMContentLoaded", function () {
+                fetch("header.html")
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById("header-placeholder").innerHTML = data;
+                    });
+
+                fetch("footer.html")
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById("footer-placeholder").innerHTML = data;
+                    });
+            });
+        </script>
+    </body>
+</html>

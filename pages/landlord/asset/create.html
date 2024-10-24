@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thêm tài sản</title>
+    <link rel="stylesheet" href="/styles/landlord/sidebar.css" />
+    <script src="/scripts/landlord/sidebar.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/styles/landlord/asset/create.css" />
+  </head>
+  <body>
+    <div id="sidebar-container"></div>
+    <nav class="navbar navbar-light bg-light">
+      <div class="d-flex">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarMenu"
+          aria-controls="navbarMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="ml-auto d-flex">
+        <button class="btn btn-success header-btn">
+          <i class="fa fa-sticky-note"></i>
+        </button>
+        <button class="btn btn-primary header-btn ml-2">
+          <i class="fa fa-calculator"></i>
+        </button>
+      </div>
+    </nav>
+    <div class="content">
+      <div class="container-fluid">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h2>Thêm tài sản</h2>
+          <div class="d-flex">
+            <a href="index.html" class="btn btn-warning">
+              <i class="fas fa-arrow-left"></i>
+              Quay về
+            </a>
+            <button class="btn btn-success ml-2">
+              <i class="fas fa-check"></i>
+              Lưu
+            </button>
+          </div>
+        </div>
+
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="assetCode">Mã tài sản</label>
+              <input
+                type="text"
+                class="form-control"
+                id="assetCode"
+                placeholder="Nhập mã tài sản"
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="assetName">Tên tài sản *</label>
+              <input
+                type="text"
+                class="form-control"
+                id="assetName"
+                placeholder="Nhập tên tài sản"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="houseSelect">Nhà</label>
+              <select class="form-control" id="houseSelect">
+                <option value="">Tất cả</option>
+                <option value="Tầng 1">Tầng 1</option>
+                <option value="Tầng 2">Tầng 2</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="roomSelect">Phòng</label>
+              <select class="form-control" id="roomSelect">
+                <option value="">Phòng</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="price">Đơn giá</label>
+              <div class="d-flex">
+                <input
+                  type="number"
+                  class="form-control"
+                  id="price"
+                  placeholder="Nhập đơn giá"
+                />
+                <div class="unit">VNĐ</div>
+              </div>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="quantity">Số lượng *</label>
+              <input
+                type="number"
+                class="form-control"
+                id="quantity"
+                value="1"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="purchaseDate">Ngày mua</label>
+              <input type="date" class="form-control" id="purchaseDate" />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="useDate">Ngày sử dụng</label>
+              <input type="date" class="form-control" id="useDate" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="liquidationDate">Ngày thanh lý</label>
+              <input type="date" class="form-control" id="liquidationDate" />
+            </div>
+            <div class="form-group col-md-6 d-flex align-items-center">
+              <input type="checkbox" id="isLiquidated" />
+              <label for="isLiquidated" class="ml-2">Đã thanh lý</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="note">Ghi chú</label>
+            <textarea
+              class="form-control"
+              id="note"
+              rows="3"
+              placeholder="Nhập ghi chú"
+            ></textarea>
+          </div>
+
+          <div class="text-danger">(*): Thông tin bắt buộc</div>
+        </form>
+      </div>
+    </div>
+    <script src="/scripts/landlord/asset/create.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

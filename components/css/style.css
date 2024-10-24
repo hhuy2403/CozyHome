@@ -1,0 +1,589 @@
+/* Global styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #555;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    color: #b8751d;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header */
+.cozyhome-header {
+    position: relative;
+    overflow: hidden;
+}
+
+.header-video {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.cozyhome-header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(42, 63, 84, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.cozyhome-header-title {
+    font-size: 2.8em;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+
+.cozyhome-header-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.cozyhome-header-links {
+    margin-top: 20px;
+}
+
+.header-link {
+    color: #ffffff;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+
+.cozyhome-btn {
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cozyhome-btn-primary {
+    background-color: #2a3f54;
+    color: #fff;
+    border: none;
+}
+
+.cozyhome-btn-primary:hover {
+    background-color: #1f2a38;
+    transform: translateY(-3px);
+    cursor: pointer;
+}
+
+.cozyhome-btn-secondary {
+    background-color: #fff;
+    color: #2a3f54;
+    border: 2px solid #2a3f54;
+}
+
+.cozyhome-btn-secondary:hover {
+    background-color: #2a3f54;
+    color: #fff;
+    transform: translateY(-3px);
+    cursor: pointer;
+}
+
+/* Main content */
+.cozyhome-main {
+    padding: 40px 20px;
+}
+
+/* About Section */
+.cozyhome-about {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 1000px;
+}
+
+.cozyhome-about-title {
+    text-align: center;
+    font-size: 1.8em;
+    color: #2a3f54;
+    margin-bottom: 30px;
+}
+
+.cozyhome-about-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.cozyhome-about-text {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.cozyhome-about-features {
+    margin-top: 20px;
+}
+
+.cozyhome-about-feature {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cozyhome-about-feature i {
+    color: #2a3f54;
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.cozyhome-about-image {
+    flex: 1;
+    text-align: center;
+}
+
+.cozyhome-about-image img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.cozyhome-about-feedback {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.cozyhome-about-feedback h3 {
+    font-size: 1.5em;
+    color: #2a3f54;
+}
+
+.cozyhome-about-feedback blockquote {
+    font-style: italic;
+    color: #555;
+    border-left: 2px solid #2a3f54;
+    padding-left: 20px;
+    margin: 20px 0;
+}
+
+.cozyhome-about-feedback cite {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* Pricing Section */
+.cozyhome-pricing {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 1000px;
+    text-align: center;
+}
+
+.cozyhome-pricing-title {
+    font-size: 1.8em;
+    color: #2a3f54;
+    margin-bottom: 30px;
+}
+
+.cozyhome-pricing-cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.cozyhome-pricing-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    flex: 1;
+    max-width: 400px;
+    transition: transform 0.3s ease;
+}
+
+.cozyhome-pricing-card:hover {
+    transform: translateY(-5px);
+}
+
+.pricing-price {
+    font-size: 1.5em;
+    color: #2a3f54;
+}
+
+.pricing-image {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+.cozyhome-pricing-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.cozyhome-pricing-card ul li {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.cozyhome-pricing-feedback {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.cozyhome-pricing-feedback h3 {
+    font-size: 1.5em;
+    color: #2a3f54;
+}
+
+.cozyhome-pricing-feedback blockquote {
+    font-style: italic;
+    color: #555;
+    border-left: 2px solid #2a3f54;
+    padding-left: 20px;
+    margin: 20px 0;
+}
+
+.cozyhome-pricing-feedback cite {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* Feature Section */
+.cozyhome-features {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 1000px;
+}
+
+.cozyhome-features-title {
+    font-size: 1.8em;
+    color: #2a3f54;
+    margin-bottom: 30px;
+}
+
+.cozyhome-feature-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.cozyhome-feature-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    max-width: 400px;
+    flex: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px;
+}
+
+.cozyhome-feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cozyhome-feature-item img{
+    width: 300px;
+    border-radius: 5px;
+}
+
+.cozyhome-feature-icon {
+    font-size: 2.5em;
+    color: #2a3f54;
+    margin-bottom: 15px;
+}
+
+.cozyhome-feature-title {
+    font-size: 1.4em;
+    margin-top: 15px;
+    color: #2a3f54;
+}
+
+.cozyhome-feature-description {
+    margin-top: 10px;
+    font-size: 0.95em;
+    color: #555;
+}
+
+/* FAQ Section */
+.cozyhome-faq {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 1000px;
+}
+
+.cozyhome-faq-title {
+    text-align: center;
+    font-size: 1.8em;
+    color: #2a3f54;
+    margin-bottom: 30px;
+}
+
+.cozyhome-faq-search {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.cozyhome-faq-search input {
+    width: 80%;
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 1em;
+}
+
+.cozyhome-faq-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.cozyhome-faq-content details {
+    background-color: #fff;
+    padding: 15px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cozyhome-faq-content details:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.cozyhome-faq-content details summary {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #2a3f54;
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    line-height: 1.2;
+}
+
+.cozyhome-faq-content details summary i {
+    font-size: 1.2em;
+    color: #2a3f54;
+    transition: transform 0.3s ease;
+    margin-right: 10px;
+}
+
+.cozyhome-faq-content details[open] summary i {
+    transform: rotate(45deg);
+}
+
+.cozyhome-faq-content p {
+    margin-top: 10px;
+    color: #555;
+}
+
+/* Footer */
+.cozyhome-footer {
+    background-color: #2a3f54;
+    color: white;
+    padding: 40px 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.cozyhome-footer-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.cozyhome-footer-column {
+    padding: 20px;
+    min-width: 200px;
+}
+
+.cozyhome-footer-logo {
+    max-width: 150px;
+    margin-bottom: 15px;
+}
+
+.cozyhome-footer-column h3 {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    color: #b8751d;
+}
+
+.cozyhome-footer-column p, .cozyhome-footer-column ul li {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+.cozyhome-footer-column ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.cozyhome-footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.cozyhome-footer-column ul li a {
+    color: #d0d0d0;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.cozyhome-footer-column ul li a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.cozyhome-footer-form input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1em;
+}
+
+.cozyhome-footer-form button {
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #2a3f54;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cozyhome-footer-form button:hover {
+    background-color: #c68a2e;
+}
+
+.cozyhome-footer-map iframe {
+    width: 100%;
+    height: 200px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.cozyhome-footer-social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 1.5em;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.cozyhome-footer-social-icons a:hover {
+    color: #b8751d;
+    transform: scale(1.1);
+}
+
+.cozyhome-footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #e0e0e0;
+}
+
+.cozyhome-footer-bottom a {
+    color: #b8751d;
+    text-decoration: none;
+}
+
+.cozyhome-footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .cozyhome-about-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cozyhome-about-text {
+        margin-right: 0;
+    }
+
+    .cozyhome-pricing-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cozyhome-pricing-card {
+        margin-bottom: 20px;
+    }
+
+    .cozyhome-feature-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cozyhome-faq-content {
+        grid-template-columns: 1fr;
+    }
+
+    .cozyhome-footer-columns {
+        grid-template-columns: 1fr;
+    }
+
+    .cozyhome-footer-form input {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .cozyhome-header-title {
+        font-size: 1.8em;
+    }
+
+    .cozyhome-btn {
+        font-size: 0.8em;
+        padding: 8px 15px;
+    }
+
+    .cozyhome-main {
+        padding: 20px 10px;
+    }
+
+    .cozyhome-feature-item img{
+        width: 260px;
+    }
+
+    .cozyhome-feature-item{
+        width: 260px;
+    }
+}

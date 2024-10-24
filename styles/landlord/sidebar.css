@@ -1,0 +1,132 @@
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f2f5f7;
+}
+
+/* Sidebar styles */
+.sidebar {
+    height: 100vh;
+    width: 250px;
+    background-color: #2a3f54;
+    color: #ecf0f1;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: width 0.3s ease;
+}
+
+.sidebar h2 {
+    margin: 20px 0;
+    font-size: 20px;
+    color: #ecf0f1;
+    text-align: center;
+}
+
+.sidebar p {
+    color: #bab8b8;
+    font-size: 16px;
+    text-align: center;
+}
+
+.sidebar .welcome {
+    margin: 20px 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+.menu-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-top: 20px;
+}
+
+.menu {
+    list-style: none;
+}
+
+.menu li a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #ecf0f1;
+    font-size: 14px;
+    border-left: 3px solid transparent;
+    transition: background-color 0.3s, border-left 0.3s;
+}
+
+.menu li a:hover,
+.menu li a.active {
+    background-color: #1c2a35;
+    border-left: 3px solid #00bcd4;
+}
+
+.menu li a i {
+    margin-right: 10px;
+}
+
+.sidebar-footer {
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #1c2a35;
+}
+
+.sidebar-footer a {
+    color: #ecf0f1;
+    font-size: 18px;
+    transition: font-size 0.3s ease;
+}
+
+/* Submenu styles */
+.submenu {
+    display: none;
+    list-style: none;
+    padding-left: 20px;
+    background-color: #1c2a35;
+}
+
+.submenu li a {
+    font-size: 12px;
+    color: #ecf0f1;
+}
+
+.submenu li a:hover {
+    color: #00bcd4;
+}
+
+.submenu-arrow {
+    position: absolute;
+    right: 20px;
+    transition: transform 0.3s ease;
+}
+
+.menu-item {
+    position: relative;
+}
+
+.submenu-open {
+    transform: rotate(180deg);
+}
+
+/* Scrollbar styles */
+.menu-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.menu-container::-webkit-scrollbar-track {
+    background: #2a3f54;
+}
+
+.menu-container::-webkit-scrollbar-thumb {
+    /*background-color: #00bcd4;*/
+    border-radius: 4px;
+}

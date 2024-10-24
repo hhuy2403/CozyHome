@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CozyHome - Tài Khoản Người Thuê</title>
+    <link rel="stylesheet" href="/styles/tenant/header.css">
+    <link rel="stylesheet" href="/styles/tenant/footer.css">
+    <link rel="stylesheet" href="/styles/tenant/account.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/scripts/tenant/account.js"></script>
+</head>
+<body class="cozyhome-account-page">
+
+<!-- Import Header -->
+<div id="header-placeholder"></div>
+
+<!-- Main Content -->
+<main class="cozyhome-main">
+    <div class="cozyhome-container">
+        <div class="cozyhome-account">
+            <h2 class="cozyhome-account-title">
+                <i class="fas fa-user-circle"></i> Thông Tin Tài Khoản
+            </h2>
+
+            <!-- Xem thông tin tài khoản -->
+            <div class="cozyhome-account-info">
+                <h3><i class="fas fa-info-circle"></i> Thông Tin Cá Nhân</h3>
+                <p><strong>Email:</strong> <span id="userEmail">user@example.com</span></p>
+                <p><strong>Tên:</strong> <span id="userName">Nguyễn Văn A</span></p>
+                <p><strong>Số điện thoại:</strong> <span id="userPhone">0123456789</span></p>
+                <p><strong>Địa chỉ:</strong> <span id="userAddress">Số 123, Đường ABC, Hà Nội</span></p>
+                <button class="cozyhome-btn cozyhome-btn-primary" onclick="showEditAccountForm()">
+                    <i class="fas fa-edit"></i> Sửa Thông Tin
+                </button>
+            </div>
+
+            <!-- Form sửa thông tin cá nhân -->
+            <div id="editAccountForm" class="cozyhome-account-form" style="display: none;">
+                <h3><i class="fas fa-edit"></i> Sửa Thông Tin Cá Nhân</h3>
+                <label for="editName">Tên: </label>
+                <input type="text" id="editName" placeholder="Nhập tên mới" value="">
+                <label for="editPhone">Số điện thoại: </label>
+                <input type="text" id="editPhone" placeholder="Nhập số điện thoại mới" value="">
+                <label for="editAddress">Địa chỉ: </label>
+                <input type="text" id="editAddress" placeholder="Nhập địa chỉ mới" value="">
+                <div class="cozyhome-form-actions">
+                    <button class="cozyhome-btn cozyhome-btn-primary" onclick="saveAccountInfo()">
+                        <i class="fas fa-save"></i> Lưu
+                    </button>
+                    <button class="cozyhome-btn cozyhome-btn-secondary" onclick="hideEditAccountForm()">
+                        <i class="fas fa-times"></i> Hủy
+                    </button>
+                </div>
+            </div>
+
+            <!-- Form đổi mật khẩu -->
+            <div class="cozyhome-account-password">
+                <h3><i class="fas fa-lock"></i> Đổi Mật Khẩu</h3>
+                <label for="currentPassword">Mật khẩu hiện tại:</label>
+                <input type="password" id="currentPassword" placeholder="Nhập mật khẩu hiện tại">
+                <label for="newPassword">Mật khẩu mới:</label>
+                <input type="password" id="newPassword" placeholder="Nhập mật khẩu mới">
+                <label for="confirmNewPassword">Xác nhận mật khẩu mới:</label>
+                <input type="password" id="confirmNewPassword" placeholder="Xác nhận mật khẩu mới">
+                <div class="cozyhome-form-actions">
+                    <button class="cozyhome-btn cozyhome-btn-primary" onclick="changePassword()">
+                        <i class="fas fa-save"></i> Đổi Mật Khẩu
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Import Footer -->
+<div id="footer-placeholder"></div>
+
+<!-- Kết nối JavaScript -->
+<script src="/scripts/tenant/header.js" defer></script>
+<script>
+    // Hàm để tải nội dung của header và footer từ các file riêng
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    });
+</script>
+
+</body>
+</html>

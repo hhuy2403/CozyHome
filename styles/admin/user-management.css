@@ -1,0 +1,192 @@
+body {
+    margin: 0;
+    background-color: #f3f4f6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #555;
+}
+
+.cozyhome-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.cozyhome-user-management-title {
+    font-size: 2.2em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cozyhome-form-group {
+    margin-bottom: 20px;
+}
+
+.cozyhome-form-group input {
+    width: calc(100% - 40px);
+    padding: 12px;
+    margin: 5px 0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.cozyhome-form-group input:focus {
+    border-color: #2a3f54;
+    outline: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cozyhome-create-user-form {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.cozyhome-create-user-form input,
+.cozyhome-create-user-form select {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin: 10px auto;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.cozyhome-form-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cozyhome-user-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.cozyhome-user-table th,
+.cozyhome-user-table td {
+    padding: 15px;
+    text-align: left;
+    font-size: 1em;
+}
+
+.cozyhome-user-table th {
+    background-color: #2a3f54;
+    color: white;
+    font-weight: bold;
+}
+
+.cozyhome-user-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.cozyhome-btn-primary {
+    background-color: #2a3f54;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.cozyhome-btn-primary:hover {
+    background-color: #1f2a38;
+    transform: translateY(-2px);
+}
+
+.cozyhome-btn-secondary {
+    background-color: #2a3f54;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.cozyhome-btn-secondary:hover {
+    background-color: #b6711d;
+    transform: translateY(-2px);
+}
+
+.cozyhome-btn-danger {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.cozyhome-btn-danger:hover {
+    background-color: #e31e10;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .cozyhome-container {
+        padding: 15px;
+    }
+
+    .cozyhome-user-table th, .cozyhome-user-table td {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+
+    .cozyhome-create-user-form input,
+    .cozyhome-create-user-form select {
+        width: calc(100% - 15px);
+        padding: 10px;
+    }
+
+    .cozyhome-form-group input {
+        padding: 10px;
+    }
+}
+
+.cozyhome-user-table td select{
+    width: calc(100% - 40px);
+    padding: 12px;
+    margin: 5px 0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}

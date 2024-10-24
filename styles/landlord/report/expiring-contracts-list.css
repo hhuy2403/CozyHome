@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+
+  .content {
+    margin-left: 250px;
+    margin-top: 20px;
+  }
+
+  .navbar {
+    margin-left: 250px;
+  }
+
+  h2 {
+    color: #73879c;
+    font-size: 30px;
+    font-weight: 700;
+  }
+
+  .form-inline label {
+    font-weight: bold;
+    color: #73879c;
+    margin-right: 10px;
+  }
+
+  .table-wrapper {
+    margin-top: 20px;
+  }
+
+  .table th, .table td {
+    vertical-align: middle;
+    text-align: center;
+    color: #73879c;
+  }
+
+  .btn-action .btn {
+    margin-left: 5px;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 1200px) {
+    .filter-group {
+      flex-direction: column;
+    }
+
+    .btn-action {
+      margin-top: 15px;
+      justify-content: flex-start;
+      gap: 10px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .d-flex {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .d-flex .btn {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+    }
+
+    .table {
+      width: 100%;
+      white-space: nowrap;
+    }
+  }
+
+  /* Custom styles for better responsiveness */
+  @media (max-width: 576px) {
+    .form-inline {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .form-inline .form-control {
+      margin-bottom: 10px;
+      width: 100%;
+    }
+  }

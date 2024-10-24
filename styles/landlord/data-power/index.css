@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.content {
+    margin-left: 250px;
+    margin-top: 20px;
+}
+
+.navbar {
+    margin-left: 250px;
+}
+
+h2 {
+    color: #73879c;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.form-inline label {
+    font-weight: bold;
+    color: #73879c;
+    margin-right: 10px;
+}
+
+.table-wrapper {
+    margin-top: 20px;
+}
+
+.header-btn {
+    margin-left: 5px;
+}
+
+.btn-action .btn {
+    margin-right: 10px;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+    text-align: center;
+    color: #73879c;
+}
+
+.note {
+    font-size: 14px;
+    color: #73879c;
+    margin-bottom: 20px;
+}
+
+.form-inline input,
+.form-inline select {
+    width: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .content, .navbar {
+        margin-left: 0;
+    }
+    .form-inline {
+        flex-direction: column;
+    }
+
+    .form-inline .form-control {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .btn-action {
+        flex-direction: column;
+    }
+
+    .btn-action .btn {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .table-wrapper .form-inline {
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .table th, .table td {
+        font-size: 12px;
+    }
+}

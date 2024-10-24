@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>CozyHome - Quản Lý Nhà Trọ</title>
+    <link rel="stylesheet" href="/components/css/style.css"/>
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script src="/components/js/main.js" defer></script>
+</head>
+
+<body>
+<header class="cozyhome-header">
+    <video autoplay muted loop class="header-video">
+        <source src="assets/videos/intro.mp4" type="video/mp4"/>
+    </video>
+    <div class="cozyhome-header-overlay">
+        <div class="cozyhome-header-content">
+            <h1 class="cozyhome-header-title">
+                <i class="fas fa-home"></i>
+                Chào mừng đến với
+                <span class="highlight">CozyHome</span>
+            </h1>
+            <div class="cozyhome-header-buttons">
+                <button class="cozyhome-btn cozyhome-btn-primary" id="start-btn">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Bắt đầu ngay
+                </button>
+                <button
+                        class="cozyhome-btn cozyhome-btn-secondary"
+                        id="explore-btn"
+                >
+                    <i class="fas fa-user-plus"></i>
+                    Khám phá ngay
+                </button>
+            </div>
+            <div class="cozyhome-header-links">
+                <a href="#features" class="header-link">Tính năng</a>
+                <a href="#pricing" class="header-link">Gói dịch vụ</a>
+                <a href="#contact" class="header-link">Liên hệ</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="cozyhome-main">
+    <!-- Expanded About Section -->
+    <section class="cozyhome-about" id="info">
+        <h2 class="cozyhome-about-title">
+            <i class="fas fa-info-circle"></i>
+            Giới thiệu về CozyHome
+        </h2>
+        <div class="cozyhome-about-content">
+            <div class="cozyhome-about-text">
+                <p>
+                    CozyHome là giải pháp quản lý nhà trọ toàn diện, giúp bạn dễ dàng
+                    quản lý tài sản, hợp đồng và thanh toán một cách hiệu quả. Với hệ
+                    thống thân thiện, bảo mật, bạn có thể quản lý mọi lúc, mọi nơi.
+                </p>
+                <div class="cozyhome-about-features">
+                    <div class="cozyhome-about-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Quản lý hợp đồng, tài sản một cách hiệu quả.</p>
+                    </div>
+                    <div class="cozyhome-about-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <p>
+                            Hỗ trợ thanh toán trực tuyến, dễ dàng theo dõi lịch sử giao
+                            dịch.
+                        </p>
+                    </div>
+                    <div class="cozyhome-about-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Cập nhật thông tin tức thì, bảo mật cao.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cozyhome-about-image">
+                <img src="/assets/images/about-image.png" alt="About CozyHome"/>
+            </div>
+        </div>
+        <div class="cozyhome-about-feedback">
+            <h3>
+                <i class="fas fa-comments"></i>
+                Phản hồi từ khách hàng
+            </h3>
+            <blockquote>
+                <p>
+                    "CozyHome đã giúp tôi quản lý nhà trọ dễ dàng hơn rất nhiều! Tính
+                    năng thanh toán trực tuyến thật tuyệt vời!"
+                </p>
+                <cite>- Nguyễn Văn A</cite>
+            </blockquote>
+        </div>
+    </section>
+
+    <section class="cozyhome-pricing" id="pricing">
+        <h2 class="cozyhome-pricing-title">
+            <i class="fas fa-tags"></i>
+            Các Gói Dịch Vụ
+        </h2>
+        <div class="cozyhome-pricing-cards">
+            <div class="cozyhome-pricing-card">
+                <h3>Gói Cơ Bản</h3>
+                <p class="pricing-price">
+                    Giá:
+                    <span>299,000 VND/tháng</span>
+                </p>
+                <img
+                        src="/assets/images/basic-package.png"
+                        alt="Gói Cơ Bản"
+                        class="pricing-image"
+                />
+                <ul>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Quản lý cơ bản
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Hỗ trợ 24/7
+                    </li>
+                </ul>
+                <button class="cozyhome-btn cozyhome-btn-primary">
+                    Bắt đầu ngay
+                </button>
+            </div>
+            <div class="cozyhome-pricing-card">
+                <h3>Gói Nâng Cao</h3>
+                <p class="pricing-price">
+                    Giá:
+                    <span>499,000 VND/tháng</span>
+                </p>
+                <img
+                        src="/assets/images/advanced-package.png"
+                        alt="Gói Nâng Cao"
+                        class="pricing-image"
+                />
+                <ul>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Đầy đủ tính năng quản lý
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Bảo mật nâng cao
+                    </li>
+                </ul>
+                <button class="cozyhome-btn cozyhome-btn-primary">
+                    Bắt đầu ngay
+                </button>
+            </div>
+        </div>
+        <div class="cozyhome-pricing-feedback">
+            <h3>
+                <i class="fas fa-comment-dots"></i>
+                Đánh giá từ khách hàng
+            </h3>
+            <blockquote>
+                <p>
+                    "Gói Nâng Cao đã mang lại cho tôi sự an tâm và giúp tôi quản lý
+                    tài sản dễ dàng hơn bao giờ hết!"
+                </p>
+                <cite>- Trần Văn B</cite>
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- Feature Section with Grid Layout -->
+    <section class="cozyhome-features" id="features">
+        <h2 class="cozyhome-features-title">
+            <i class="fas fa-star"></i>
+            Tính năng nổi bật
+        </h2>
+        <div class="cozyhome-feature-list">
+            <div class="cozyhome-feature-item">
+                <div class="cozyhome-feature-icon">
+                    <i class="fas fa-warehouse"></i>
+                </div>
+                <img
+                        src="/assets/images/feature1.png"
+                        alt="Quản lý tài sản"
+                        class="cozyhome-feature-image"
+                />
+                <h3 class="cozyhome-feature-title">Quản lý tài sản</h3>
+                <p class="cozyhome-feature-description">
+                    Theo dõi và quản lý các nhà trọ của bạn một cách dễ dàng và hiệu
+                    quả.
+                </p>
+                <a href="#" class="cozyhome-btn cozyhome-btn-secondary">
+                    Tìm hiểu thêm
+                </a>
+            </div>
+            <div class="cozyhome-feature-item">
+                <div class="cozyhome-feature-icon">
+                    <i class="fas fa-credit-card"></i>
+                </div>
+                <img
+                        src="/assets/images/feature2.png"
+                        alt="Thanh toán tiện lợi"
+                        class="cozyhome-feature-image"
+                />
+                <h3 class="cozyhome-feature-title">Thanh toán tiện lợi</h3>
+                <p class="cozyhome-feature-description">
+                    Đơn giản và thuận tiện, giúp bạn dễ dàng theo dõi toàn bộ lịch sử
+                    giao dịch một cách minh bạch.
+                </p>
+                <a href="#" class="cozyhome-btn cozyhome-btn-secondary">
+                    Tìm hiểu thêm
+                </a>
+            </div>
+            <div class="cozyhome-feature-item">
+                <div class="cozyhome-feature-icon">
+                    <i class="fas fa-hand-holding-heart"></i>
+                </div>
+                <img
+                        src="/assets/images/feature3.png"
+                        alt="Hỗ trợ 24/7"
+                        class="cozyhome-feature-image"
+                />
+                <h3 class="cozyhome-feature-title">Quản lý dịch vụ</h3>
+                <p class="cozyhome-feature-description">
+                    Quản lý chuyên nghiệp, đảm bảo tính linh hoạt và hiệu quả tối đa
+                    cho mọi nhu cầu của bạn.
+                </p>
+                <a href="#" class="cozyhome-btn cozyhome-btn-secondary">
+                    Tìm hiểu thêm
+                </a>
+            </div>
+            <div class="cozyhome-feature-item">
+                <div class="cozyhome-feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <img
+                        src="/assets/images/feature4.png"
+                        alt="Báo cáo và phân tích"
+                        class="cozyhome-feature-image"
+                />
+                <h3 class="cozyhome-feature-title">Báo cáo và phân tích</h3>
+                <p class="cozyhome-feature-description">
+                    Tạo báo cáo chi tiết để theo dõi hiệu suất và tối ưu hóa doanh
+                    thu.
+                </p>
+                <a href="#" class="cozyhome-btn cozyhome-btn-secondary">
+                    Tìm hiểu thêm
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="cozyhome-faq">
+        <h2 class="cozyhome-faq-title">
+            <i class="fas fa-question-circle"></i>
+            Câu Hỏi Thường Gặp
+        </h2>
+
+        <!-- Quick Search Bar -->
+        <div class="cozyhome-faq-search">
+            <input
+                    type="text"
+                    placeholder="Tìm câu hỏi..."
+                    id="faq-search"
+                    onkeyup="filterFAQs()"
+            />
+        </div>
+
+        <div class="cozyhome-faq-content">
+            <details>
+                <summary>
+                    <i class="fas fa-plus"></i>
+                    CozyHome hỗ trợ những phương thức thanh toán nào?
+                </summary>
+                <p>
+                    CozyHome hỗ trợ các phương thức thanh toán qua thẻ, ví điện tử và
+                    chuyển khoản ngân hàng.
+                </p>
+            </details>
+            <details>
+                <summary>
+                    <i class="fas fa-plus"></i>
+                    Làm thế nào để khôi phục tài khoản nếu tôi quên mật khẩu?
+                </summary>
+                <p>
+                    Bạn có thể khôi phục mật khẩu bằng cách nhấn vào "Quên mật khẩu"
+                    trên trang đăng nhập và làm theo hướng dẫn.
+                </p>
+            </details>
+            <details>
+                <summary>
+                    <i class="fas fa-plus"></i>
+                    Tôi có thể dùng CozyHome trên thiết bị di động không?
+                </summary>
+                <p>
+                    CozyHome hoàn toàn tương thích với các thiết bị di động, giúp bạn
+                    quản lý nhà trọ mọi lúc, mọi nơi.
+                </p>
+            </details>
+            <!-- Other FAQs... -->
+        </div>
+    </section>
+</main>
+
+<footer class="cozyhome-footer" id="contact">
+    <div class="cozyhome-footer-content">
+        <div class="cozyhome-footer-columns">
+            <!-- About Section -->
+            <div class="cozyhome-footer-column">
+                <h3>
+                    <i class="fas fa-home"></i>
+                    CozyHome
+                </h3>
+                <p>
+                    CozyHome là nền tảng quản lý nhà trọ hiện đại, giúp quản lý tài
+                    sản, hợp đồng và thanh toán một cách dễ dàng và hiệu quả.
+                </p>
+                <div class="cozyhome-footer-social-icons">
+                    <a href="https://www.facebook.com/hhhuy.03">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://x.com/hhuy2403">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/hhhuy.03/">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/huy-ho%C3%A0ng-657532333/">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="cozyhome-footer-column">
+                <h3>
+                    <i class="fas fa-link"></i>
+                    Liên Kết Nhanh
+                </h3>
+                <ul class="cozyhome-footer-links">
+                    <li>
+                        <a href="#info" class="footer-link">
+                            <i class="fas fa-info-circle"></i>
+                            Giới thiệu
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#features" class="footer-link">
+                            <i class="fas fa-star"></i>
+                            Tính năng
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#pricing" class="footer-link">
+                            <i class="fas fa-tags"></i>
+                            Bảng giá
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/pages/auth/login.html">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Đăng Nhập
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/pages/auth/register.html">
+                            <i class="fas fa-user-plus"></i>
+                            Đăng Ký
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="cozyhome-footer-column">
+                <h3>
+                    <i class="fas fa-envelope"></i>
+                    Liên Hệ
+                </h3>
+                <p>
+                    <i class="fas fa-map-marker-alt"></i>
+                    136 Xuân Thuỷ, Cầu Giấy, Hà Nội
+                </p>
+                <p>
+                    <i class="fas fa-phone-alt"></i>
+                    0123 456 789
+                </p>
+                <p>
+                    <i class="fas fa-envelope"></i>
+                    zero24032003@gmail.com
+                </p>
+            </div>
+
+            <!-- Newsletter Signup -->
+            <div class="cozyhome-footer-column">
+                <h3>
+                    <i class="fas fa-newspaper"></i>
+                    Đăng Ký Nhận Tin Tức
+                </h3>
+                <form action="#" class="cozyhome-footer-form">
+                    <input type="email" placeholder="Nhập email của bạn" required/>
+                    <button
+                            class="cozyhome-btn cozyhome-btn-secondary"
+                            id="explore-btn-1"
+                    >
+                        <i class="fas fa-paper-plane"></i>
+                        Đăng Ký
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

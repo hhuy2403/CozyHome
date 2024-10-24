@@ -1,0 +1,122 @@
+.cozyhome-admin-dashboard-page {
+    background-color: #f5f5f5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+.cozyhome-admin-dashboard .cozyhome-dashboard-title {
+    font-size: 2em;
+    color: #2a3f54;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.cozyhome-dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.cozyhome-card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cozyhome-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.cozyhome-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.cozyhome-card p {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #2a3f54;
+}
+
+.cozyhome-dashboard-section {
+    margin-top: 20px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cozyhome-dashboard-section h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #2a3f54;
+}
+
+.cozyhome-dashboard-section canvas {
+    width: 100%;
+    height: 400px;
+}
+
+#notificationList {
+    list-style: none;
+    padding: 0;
+}
+
+#notificationList li {
+    background: #f9f9f9;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+#notificationList li:hover {
+    background: #e9e9e9;
+}
+
+@media (max-width: 768px) {
+    .cozyhome-admin-dashboard .cozyhome-dashboard-title {
+        font-size: 1.8em;
+    }
+
+    .cozyhome-card h3 {
+        font-size: 1.3em;
+    }
+
+    .cozyhome-card p {
+        font-size: 1.2em;
+    }
+
+    .cozyhome-dashboard-section h3 {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 480px) {
+    .cozyhome-admin-dashboard .cozyhome-dashboard-title {
+        font-size: 1.5em;
+    }
+
+    .cozyhome-card h3 {
+        font-size: 1.1em;
+    }
+
+    .cozyhome-card p {
+        font-size: 1em;
+    }
+
+    .cozyhome-dashboard-section h3 {
+        font-size: 1.1em;
+    }
+
+    #notificationList li {
+        font-size: 0.9em;
+    }
+}

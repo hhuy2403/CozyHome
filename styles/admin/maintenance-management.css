@@ -1,0 +1,182 @@
+body {
+    margin: 0;
+    background-color: #f3f4f6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes grow {
+    from {
+        transform: scale(0.9);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.cozyhome-main {
+    flex: 1;
+    padding: 20px 0;
+}
+
+.cozyhome-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.cozyhome-maintenance-title {
+    font-size: 2.2em;
+    color: #2a3f54;
+    text-align: center;
+    margin-bottom: 25px;
+    animation: slideIn 0.5s ease-in-out;
+}
+
+.cozyhome-maintenance-section {
+    margin-top: 20px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.cozyhome-create-contract-form,
+.cozyhome-create-maintenance-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    animation: grow 0.3s ease-in-out;
+}
+
+.cozyhome-create-contract-form input,
+.cozyhome-create-maintenance-form input,
+.cozyhome-create-maintenance-form textarea,
+.cozyhome-create-maintenance-form select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    transition: border-color 0.3s, transform 0.2s;
+}
+
+.cozyhome-create-contract-form input:focus,
+.cozyhome-create-maintenance-form input:focus,
+.cozyhome-create-maintenance-form textarea:focus,
+.cozyhome-create-maintenance-form select:focus {
+    border-color: #2a3f54;
+    transform: scale(1.02);
+    outline: none;
+}
+
+.cozyhome-form-actions {
+    display: flex;
+    justify-content: space-between;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.cozyhome-maintenance-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    animation: grow 0.5s ease-in-out;
+}
+
+.cozyhome-maintenance-table th,
+.cozyhome-maintenance-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.cozyhome-maintenance-table th {
+    background-color: #2a3f54;
+    color: #fff;
+    animation: slideIn 0.5s ease-in-out;
+}
+
+.cozyhome-maintenance-table tr:hover {
+    background-color: #f1f1f1;
+    transform: translateY(-2px);
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+}
+
+.cozyhome-btn-primary,
+.cozyhome-btn-secondary,
+.cozyhome-btn-danger {
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cozyhome-btn-primary {
+    background-color: #2a3f54;
+    color: white;
+}
+
+.cozyhome-btn-primary:hover {
+    background-color: #1f2a38;
+    transform: scale(1.05);
+}
+
+.cozyhome-btn-secondary {
+    background-color: #2a3f54;
+    color: white;
+}
+
+.cozyhome-btn-secondary:hover {
+    background-color: #e67e22;
+    transform: scale(1.05);
+}
+
+.cozyhome-btn-danger {
+    background-color: #f44336;
+    color: white;
+}
+
+.cozyhome-btn-danger:hover {
+    background-color: #e31e10;
+    transform: scale(1.05);
+}
+
+.cozyhome-search {
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+.cozyhome-search input {
+    width: 300px;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

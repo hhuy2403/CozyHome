@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Room Management Interface</title>
+        <link rel="stylesheet" href="/styles/landlord/room/index.css" />
+        <link rel="stylesheet" href="/styles/landlord/sidebar.css" />
+        <script src="/scripts/landlord/sidebar.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    </head>
+    <body>
+        <div id="sidebar-container"></div>
+        <nav class="navbar navbar-light bg-light">
+            <div class="d-flex">
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarMenu"
+                    aria-controls="navbarMenu"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="ml-auto d-flex">
+                <button class="btn btn-success header-btn" data-toggle="tooltip" title="Notes">
+                    <i class="fa fa-sticky-note"></i>
+                </button>
+                <button class="btn btn-primary header-btn ml-2" data-toggle="tooltip" title="Calculator">
+                    <i class="fa fa-calculator"></i>
+                </button>
+            </div>
+        </nav>
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <span>Danh sách phòng</span>
+                        <div class="form-inline align-items-center">
+                            <label>
+                                <select class="form-control mr-2" id="roomStatusFilter">
+                                    <option>- Trạng thái phòng -</option>
+                                    <option value="">Còn trống</option>
+                                    <option value="">Đã cho thuê</option>
+                                </select>
+                            </label>
+                            <label>
+                                <select class="form-control mr-2" id="feeStatusFilter">
+                                    <option>- Trạng thái phí -</option>
+                                    <option value="">Chưa thu phí</option>
+                                </select>
+                            </label>
+                            <label>
+                                <input type="text" class="form-control mr-2" placeholder="Phòng" id="roomSearch" />
+                            </label>
+                            <button class="btn btn-primary d-flex align-items-center mr-2" id="searchBtn">
+                                <i class="fas fa-search mr-1"></i> Tìm kiếm
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="room-status">
+                                <span id="roomStatusSummary">Còn trống 0 | Đã cho thuê 0 | Chưa thu phí 0</span>
+                            </div>
+                            <!-- Buttons section -->
+                            <div class="d-flex">
+                                <button
+                                    class="btn btn-warning d-flex align-items-center mr-2"
+                                    data-toggle="tooltip"
+                                    title="Import rooms from Excel"
+                                >
+                                    <i class="fas fa-upload mr-1"></i> Nhập phòng từ excel
+                                </button>
+
+                                <a
+                                    href="/pages/landlord/room/customer.html"
+                                    class="btn btn-primary d-flex align-items-center mr-2"
+                                    data-toggle="tooltip"
+                                    title="Manage tenants"
+                                >
+                                    <i class="fas fa-users mr-1"></i> Khách thuê
+                                </a>
+
+                                <a
+                                    href="/pages/landlord/room/list-room.html"
+                                    class="btn btn-info d-flex align-items-center mr-2"
+                                    data-toggle="tooltip"
+                                    title="Manage rooms"
+                                >
+                                    <i class="fas fa-list mr-1"></i> Phòng
+                                </a>
+                                <a
+                                    href="/pages/landlord/area/create.html"
+                                    class="btn btn-success d-flex align-items-center"
+                                    data-toggle="tooltip"
+                                    title="Add new house"
+                                >
+                                    <i class="fas fa-building mr-1"></i> Thêm nhà
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Tabs for floors and houses -->
+                        <ul class="nav nav-tabs mt-3" id="houseTabs">
+                            <!-- Nhà sẽ được thêm vào đây -->
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="room-status">
+                                <span id="roomStatusSummary1">Còn trống 0 | Đã cho thuê 0 | Chưa thu phí 0</span>
+                            </div>
+                            <!-- Buttons section -->
+                            <div class="d-flex">
+                                <!-- Nút thêm phòng nhanh chuyển sang trang CreateFast.html -->
+                                <a
+                                    href="create-fast.html"
+                                    class="btn btn-info mr-2"
+                                    data-toggle="tooltip"
+                                    title="Add room quickly"
+                                >
+                                    <i class="fas fa-plus mr-1"></i> Thêm phòng nhanh
+                                </a>
+
+                                <a
+                                    href="create.html"
+                                    class="btn btn-success mr-2"
+                                    data-toggle="tooltip"
+                                    title="Add new room"
+                                >
+                                    <i class="fas fa-bed"></i> Thêm phòng
+                                </a>
+
+                                <a
+                                    href="/pages/landlord/area/edit.html"
+                                    class="btn btn-primary mr-2"
+                                    data-toggle="tooltip"
+                                    title="Edit house"
+                                    id="editHouseBtn"
+                                >
+                                    <i class="fas fa-edit mr-1"></i> Sửa nhà
+                                </a>
+
+                                <button
+                                    class="btn btn-danger"
+                                    data-toggle="tooltip"
+                                    title="Delete house"
+                                    id="deleteHouseBtn"
+                                >
+                                    <i class="fas fa-trash-alt mr-1"></i> Xóa nhà
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Container để hiển thị danh sách phòng -->
+                        <div class="row mt-4" id="roomContainer">
+                            <!-- Phòng sẽ được thêm vào đây -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                fetch("../sidebar.html")
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById("sidebar-container").innerHTML = data;
+                    })
+                    .catch(error => console.error("Error loading sidebar:", error));
+            });
+        </script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/scripts/landlord/room/index.js"></script>
+    </body>
+</html>

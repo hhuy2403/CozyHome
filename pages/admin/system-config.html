@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CozyHome - Cấu Hình Hệ Thống</title>
+    <link rel="stylesheet" href="/styles/admin/header.css">
+    <link rel="stylesheet" href="/styles/admin/footer.css">
+    <link rel="stylesheet" href="/styles/admin/system-config.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="/scripts/admin/system-config.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="cozyhome-system-config-page">
+
+<!-- Import Header -->
+<div id="header-placeholder"></div>
+
+<!-- Main Content -->
+<main class="cozyhome-main">
+    <div class="cozyhome-container">
+        <div class="cozyhome-system-config">
+            <h2 class="cozyhome-system-config-title">
+                <i class="fas fa-cogs"></i> Cấu Hình Hệ Thống
+            </h2>
+
+            <div class="cozyhome-config-section">
+                <h3><i class="fas fa-sliders-h"></i> Cấu hình hệ thống</h3>
+                <label for="systemEmail">Email Hệ Thống:</label>
+                <input type="email" id="systemEmail" placeholder="Nhập email hệ thống">
+                <label for="paymentGateway">Cổng Thanh Toán:</label>
+                <input type="text" id="paymentGateway" placeholder="Nhập thông tin cổng thanh toán">
+                <label for="notificationSettings">Thiết Lập Thông Báo:</label>
+                <textarea id="notificationSettings" rows="4" placeholder="Nhập thiết lập thông báo"></textarea>
+                <label for="supportContact">Liên hệ Hỗ Trợ:</label>
+                <input type="text" id="supportContact" placeholder="Nhập thông tin liên hệ hỗ trợ">
+                <button class="cozyhome-btn cozyhome-btn-primary" onclick="saveSystemConfig()">
+                    <i class="fas fa-save"></i> Lưu Cấu Hình
+                </button>
+            </div>
+
+            <div class="cozyhome-config-section">
+                <h3><i class="fas fa-key"></i> Quản lý Mật Khẩu</h3>
+                <label for="adminPassword">Mật Khẩu Quản Trị Viên:</label>
+                <input type="password" id="adminPassword" placeholder="Nhập mật khẩu mới">
+                <button class="cozyhome-btn cozyhome-btn-secondary" onclick="changeAdminPassword()">
+                    <i class="fas fa-key"></i> Đổi Mật Khẩu
+                </button>
+            </div>
+
+            <div class="cozyhome-config-section">
+                <h3><i class="fas fa-shield-alt"></i> Thiết lập Bảo Mật</h3>
+                <label for="twoFactorAuth">Xác thực hai yếu tố:</label>
+                <select id="twoFactorAuth">
+                    <option value="enabled">Bật</option>
+                    <option value="disabled">Tắt</option>
+                </select>
+                <button class="cozyhome-btn cozyhome-btn-primary" onclick="function saveSecuritySettings() {
+
+                }
+                saveSecuritySettings()">
+                    <i class="fas fa-shield-alt"></i> Lưu Bảo Mật
+                </button>
+            </div>
+
+            <div class="cozyhome-config-section">
+                <h3><i class="fas fa-user-edit"></i> Thông Tin Cá Nhân Quản Trị Viên</h3>
+                <label for="adminName">Tên Quản Trị Viên:</label>
+                <input type="text" id="adminName" placeholder="Nhập tên của bạn">
+                <label for="adminPhone">Số Điện Thoại:</label>
+                <input type="text" id="adminPhone" placeholder="Nhập số điện thoại của bạn">
+                <label for="adminAddress">Địa Chỉ:</label>
+                <textarea id="adminAddress" rows="3" placeholder="Nhập địa chỉ của bạn"></textarea>
+                <button class="cozyhome-btn cozyhome-btn-primary" onclick="saveAdminInfo()">
+                    <i class="fas fa-save"></i> Lưu Thông Tin Cá Nhân
+                </button>
+            </div>
+
+            <div class="cozyhome-config-section">
+                <h3><i class="fas fa-building"></i> Cấu Hình Thông Tin Footer</h3>
+                <label for="footerAddress">Địa chỉ:</label>
+                <input type="text" id="footerAddress" placeholder="Nhập địa chỉ hiển thị trên footer">
+                
+                <label for="footerPhone">Số điện thoại:</label>
+                <input type="text" id="footerPhone" placeholder="Nhập số điện thoại hiển thị trên footer">
+                
+                <label for="footerEmail">Email:</label>
+                <input type="email" id="footerEmail" placeholder="Nhập email hiển thị trên footer">
+                
+                <button class="cozyhome-btn cozyhome-btn-primary" onclick="saveFooterConfig()">
+                    <i class="fas fa-save"></i> Lưu Thông Tin Footer
+                </button>
+            </div>            
+            
+            <div class="cozyhome-config-section">
+                <h3><i class="fas fa-database"></i> Sao lưu và phục hồi dữ liệu</h3>
+                <button class="cozyhome-btn cozyhome-btn-primary" onclick="createBackup()">
+                    <i class="fas fa-cloud-upload-alt"></i> Tạo Sao Lưu
+                </button>
+                <button class="cozyhome-btn cozyhome-btn-secondary" onclick="restoreBackup()">
+                    <i class="fas fa-cloud-download-alt"></i> Phục Hồi Dữ Liệu
+                </button>
+            </div>
+
+            <div class="cozyhome-config-section">
+                <h3><i class="fas fa-sync-alt"></i> Cập nhật hệ thống & hệ điều hành</h3>
+                <button class="cozyhome-btn cozyhome-btn-primary" onclick="updateSystem()">
+                    <i class="fas fa-download"></i> Cập Nhật Hệ Thống
+                </button>
+                <button class="cozyhome-btn cozyhome-btn-secondary" onclick="updateOS()">
+                    <i class="fas fa-laptop"></i> Cập Nhật Hệ Điều Hành
+                </button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Import Footer -->
+<div id="footer-placeholder"></div>
+<script src="/scripts/admin/header.js" defer></script>
+<script>
+    // Hàm để tải nội dung của header và footer từ các file riêng
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    });
+</script>
+
+</body>
+</html>

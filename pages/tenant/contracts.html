@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CozyHome - Quản Lý Hợp Đồng Thuê Phòng</title>
+    <link rel="stylesheet" href="/styles/tenant/header.css">
+    <link rel="stylesheet" href="/styles/tenant/footer.css">
+    <link rel="stylesheet" href="/styles/tenant/contracts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/scripts/tenant/contracts.js"></script>
+</head>
+<body class="cozyhome-contracts-page">
+
+<!-- Import Header -->
+<div id="header-placeholder"></div>
+
+<!-- Main Content -->
+<main class="cozyhome-main">
+    <div class="cozyhome-container">
+        <div class="cozyhome-contracts">
+            <h2 class="cozyhome-contracts-title">
+                <i class="fas fa-file-contract"></i> Quản Lý Hợp Đồng Thuê Phòng
+            </h2>
+
+            <!-- Bộ lọc tìm kiếm hợp đồng -->
+            <div class="cozyhome-contracts-filter">
+                <h3><i class="fas fa-search"></i> Tìm kiếm hợp đồng</h3>
+                <div class="filter-inputs">
+                    <label for="filterRoom">Tìm theo phòng:</label>
+                    <input type="text" id="filterRoom" placeholder="Nhập số phòng...">
+                    <label for="filterDate">Tìm theo ngày hết hạn:</label>
+                    <input type="date" id="filterDate">
+                    <button class="cozyhome-btn cozyhome-btn-primary" onclick="filterContracts()">
+                        <i class="fas fa-search"></i> Tìm kiếm
+                    </button>
+                </div>
+            </div>
+
+            <!-- Hiển thị hợp đồng thuê phòng -->
+            <div class="cozyhome-contracts-list">
+                <h3><i class="fas fa-file-alt"></i> Hợp Đồng Thuê Phòng</h3>
+                <div id="contracts-container">
+                    <!-- Hợp đồng thuê phòng sẽ được hiển thị tại đây -->
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Import Footer -->
+<div id="footer-placeholder"></div>
+
+<!-- Kết nối JavaScript -->
+<script src="/scripts/tenant/header.js" defer></script>
+<script>
+    // Hàm để tải nội dung của header và footer từ các file riêng
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    });
+</script>
+</body>
+</html>
