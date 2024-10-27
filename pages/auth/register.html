@@ -1,197 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CozyHome - Đăng Ký</title>
-    <link rel="stylesheet" href="/styles/auth/register.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-    <script src="/scripts/auth/register.js" defer></script>
-  </head>
-  <body>
-    <header class="register-header">
-      <nav class="register-navbar">
-        <div class="register-logo">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CozyHome - Đăng Ký</title>
+  <link rel="stylesheet" href="/styles/auth/register.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <script src="/scripts/auth/register.js" defer></script>
+</head>
+
+<body>
+  <header class="register-header">
+    <nav class="register-navbar">
+      <div class="register-logo">
+        <a href="../../index.html">
+          <i class="fas fa-home"></i>
+          &nbsp;CozyHome
+        </a>
+      </div>
+      <ul class="register-nav-links" id="navLinks">
+        <li>
           <a href="../../index.html">
             <i class="fas fa-home"></i>
-            &nbsp;CozyHome
+            Trang Chủ
           </a>
+        </li>
+        <li>
+          <a href="login.html">
+            <i class="fas fa-sign-in-alt"></i>
+            Đăng Nhập
+          </a>
+        </li>
+      </ul>
+      <button class="register-nav-toggle" id="navToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
+  </header>
+
+  <main class="register-main">
+    <div class="register-box">
+      <h2 class="register-title">Đăng Ký</h2>
+      <form id="registerForm">
+        <div class="register-form-group">
+          <label for="userName">Tên đăng nhập</label>
+          <input type="text" id="userName" name="user_name" placeholder="Nhập tên đăng nhập" required />
         </div>
-        <ul class="register-nav-links" id="navLinks">
-          <li>
-            <a href="../../index.html">
-              <i class="fas fa-home"></i>
-              Trang Chủ
-            </a>
-          </li>
-          <li>
-            <a href="login.html">
-              <i class="fas fa-sign-in-alt"></i>
-              Đăng Nhập
-            </a>
-          </li>
-        </ul>
-        <button class="register-nav-toggle" id="navToggle">
-          <i class="fas fa-bars"></i>
-        </button>
-      </nav>
-    </header>
-
-    <main class="register-main">
-      <div class="register-box">
-        <h2 class="register-title">Đăng Ký</h2>
-        <form id="registerForm">
-          <div class="register-form-group">
-            <label for="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Nhập email"
-            />
-          </div>
-          <div class="register-form-group password-container">
-            <label for="password">Mật khẩu</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="Nhập mật khẩu"
-            />
-            <button type="button" id="togglePassword" class="toggle-password">
-              <i class="fas fa-eye"></i>
-            </button>
-          </div>
-          <div class="register-form-group password-container">
-            <label for="confirmPassword">Nhập lại mật khẩu</label>
-            <input
-              type="password"
-              id="confirmPassword"
-              name="confirmPassword"
-              placeholder="Nhập lại mật khẩu"
-            />
-            <button
-              type="button"
-              id="toggleConfirmPassword"
-              class="toggle-password"
-            >
-              <i class="fas fa-eye"></i>
-            </button>
-          </div>
-
-          <button type="submit" class="register-btn register-btn-primary">
-            <i class="fas fa-user-plus"></i>
-            Đăng Ký
+        <div class="register-form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email_address" placeholder="Nhập email" required />
+        </div>
+        <div class="register-form-group password-container">
+          <label for="password">Mật khẩu</label>
+          <input type="password" id="password" name="hashed_password" placeholder="Nhập mật khẩu" required />
+          <button type="button" id="togglePassword" class="toggle-password">
+            <i class="fas fa-eye"></i>
           </button>
-          <p class="register-error" id="registerError"></p>
-          <p class="register-login-link">
-            Đã có tài khoản?
-            <a href="login.html">Đăng nhập ngay</a>
-            .
-          </p>
-        </form>
-      </div>
-    </main>
+        </div>
+        <div class="register-form-group password-container">
+          <label for="confirmPassword">Nhập lại mật khẩu</label>
+          <input type="password" id="confirmPassword" placeholder="Nhập lại mật khẩu" required />
+          <button type="button" id="toggleConfirmPassword" class="toggle-password">
+            <i class="fas fa-eye"></i>
+          </button>
+        </div>
+        <div class="register-form-group">
+          <label for="role">Vai trò</label>
+          <select id="role" name="role_id" required>
+            <option value="">Chọn vai trò</option>
+            <option value="3">Chủ trọ</option>
+            <option value="4">Người thuê</option>
+          </select>
+        </div>
+        <button type="submit" class="register-btn register-btn-primary">
+          <i class="fas fa-user-plus"></i> Đăng Ký
+        </button>
+        <p class="register-error" id="registerError"></p>
+        <p class="register-login-link">
+          Đã có tài khoản? <a href="login.html">Đăng nhập ngay</a>.
+        </p>
+      </form>
+    </div>
+  </main>
 
-    <!-- footer.html -->
-    <footer class="register-footer">
-      <div class="register-footer-content">
-        <div class="register-footer-columns">
-          <div class="register-footer-column">
-            <h3>
-              <i class="fas fa-building"></i>
-              CozyHome
-            </h3>
+  <!-- footer.html -->
+  <footer class="register-footer">
+    <div class="register-footer-content">
+      <div class="register-footer-columns">
+        <div class="register-footer-column">
+          <h3>
+            <i class="fas fa-building"></i>
+            CozyHome
+          </h3>
+          <p>
+            Quản lý nhà trọ hiệu quả, đơn giản hóa mọi thao tác cho quản trị
+            viên, chủ trọ và người thuê.
+          </p>
+          <div class="register-footer-address">
             <p>
-              Quản lý nhà trọ hiệu quả, đơn giản hóa mọi thao tác cho quản trị
-              viên, chủ trọ và người thuê.
+              <i class="fas fa-map-marker-alt"></i>
+              123 Đường ABC, Quận XYZ, TP. Hồ Chí Minh
             </p>
-            <div class="register-footer-address">
-              <p>
-                <i class="fas fa-map-marker-alt"></i>
-                123 Đường ABC, Quận XYZ, TP. Hồ Chí Minh
-              </p>
-              <p>
-                <i class="fas fa-phone-alt"></i>
-                0123 456 789
-              </p>
-              <p>
-                <i class="fas fa-envelope"></i>
-                contact@cozyhome.vn
-              </p>
-            </div>
-          </div>
-          <div class="register-footer-column">
-            <h3>
-              <i class="fas fa-link"></i>
-              Liên kết nhanh
-            </h3>
-            <ul class="register-footer-links">
-              <li>
-                <a href="#">
-                  <i class="fas fa-info-circle"></i>
-                  Giới thiệu
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fas fa-star"></i>
-                  Tính năng
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fas fa-phone-alt"></i>
-                  Liên hệ
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fas fa-file-alt"></i>
-                  Điều khoản sử dụng
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="register-footer-column">
-            <h3>
-              <i class="fas fa-share-alt"></i>
-              Theo dõi chúng tôi
-            </h3>
-            <div class="register-social-icons">
-              <a href="#" class="register-footer-link">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="register-footer-link">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="register-footer-link">
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a href="#" class="register-footer-link">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </div>
-          </div>
-          <div class="register-footer-column">
-            <h3>
+            <p>
+              <i class="fas fa-phone-alt"></i>
+              0123 456 789
+            </p>
+            <p>
               <i class="fas fa-envelope"></i>
-              Liên hệ nhanh
-            </h3>
-            <form action="#" class="register-footer-form">
-              <input type="text" placeholder="Họ và tên" required />
-              <input type="email" placeholder="Email" required />
-              <textarea placeholder="Tin nhắn" required></textarea>
-              <button type="submit" class="register-footer-submit-btn">
-                Gửi
-              </button>
-            </form>
+              contact@cozyhome.vn
+            </p>
           </div>
         </div>
+        <div class="register-footer-column">
+          <h3>
+            <i class="fas fa-link"></i>
+            Liên kết nhanh
+          </h3>
+          <ul class="register-footer-links">
+            <li>
+              <a href="#">
+                <i class="fas fa-info-circle"></i>
+                Giới thiệu
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fas fa-star"></i>
+                Tính năng
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fas fa-phone-alt"></i>
+                Liên hệ
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fas fa-file-alt"></i>
+                Điều khoản sử dụng
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="register-footer-column">
+          <h3>
+            <i class="fas fa-share-alt"></i>
+            Theo dõi chúng tôi
+          </h3>
+          <div class="register-social-icons">
+            <a href="#" class="register-footer-link">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="register-footer-link">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="register-footer-link">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="register-footer-link">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+        <div class="register-footer-column">
+          <h3>
+            <i class="fas fa-envelope"></i>
+            Liên hệ nhanh
+          </h3>
+          <form action="#" class="register-footer-form">
+            <input type="text" placeholder="Họ và tên" required />
+            <input type="email" placeholder="Email" required />
+            <textarea placeholder="Tin nhắn" required></textarea>
+            <button type="submit" class="register-footer-submit-btn">
+              Gửi
+            </button>
+          </form>
+        </div>
       </div>
-    </footer>
-  </body>
+    </div>
+  </footer>
+</body>
 </html>

@@ -1,114 +1,59 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
-
-    if (navToggle && navLinks) {
-        navToggle.addEventListener('click', function () {
-            navLinks.classList.toggle('show');
-        });
-    }
-
+document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.getElementById("loginForm");
-    const loginError = document.getElementById("loginError");
     const togglePassword = document.getElementById("togglePassword");
     const passwordInput = document.getElementById("password");
-
-    // Xử lý ẩn/hiện mật khẩu
-    togglePassword.addEventListener("click", function () {
-        const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
-        passwordInput.setAttribute("type", type);
-
-        // Đổi biểu tượng khi mật khẩu được hiển thị hoặc ẩn
-        this.querySelector("i").classList.toggle("fa-eye");
-        this.querySelector("i").classList.toggle("fa-eye-slash");
-    });
-
-    // Regular expression for validating an email
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-    // Thêm tài khoản admin mặc định
-    function addDefaultAdmin() {
-        const defaultAdmin = {
-            email: "hvh2403@gmail.com",
-            password: "Huydz2403@",
-            role: "admin"
-        };
-
-        const storedUsers = JSON.parse(localStorage.getItem("cozyhome-users")) || [];
-        // Kiểm tra xem admin mặc định đã tồn tại trong danh sách người dùng chưa
-        const adminExists = storedUsers.some(user => user.email === defaultAdmin.email);
-
-        if (!adminExists) {
-            storedUsers.push(defaultAdmin);
-            localStorage.setItem("cozyhome-users", JSON.stringify(storedUsers));
-        }
+    const loginError = document.getElementById("loginError");
+  
+    // Add hardcoded admin account to localStorage if not already present
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    if (!users.some(user => user.user_name === "admin")) {
+      users.push(adminAccount);
+      localStorage.setItem("users", JSON.stringify(users));
     }
-
-    // Gọi hàm để đảm bảo admin mặc định được thêm vào
-    addDefaultAdmin();
-
-    // Xử lý sự kiện khi nhấn đăng nhập
-    loginForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-        const email = document.getElementById("email").value.trim();
-        const password = document.getElementById("password").value;
-
-        // Reset lỗi trước đó
-        loginError.textContent = "";
-
-        // Kiểm tra tính hợp lệ của email và mật khẩu
-        if (!email) {
-            loginError.textContent = "Vui lòng nhập email.";
-            return;
-        }
-
-        if (!emailRegex.test(email)) {
-            loginError.textContent = "Email không hợp lệ.";
-            return;
-        }
-
-        if (!password) {
-            loginError.textContent = "Vui lòng nhập mật khẩu.";
-            return;
-        }
-
-        console.log("Email nhập vào:", email);
-        console.log("Mật khẩu nhập vào:", password);
-
-        // Lấy danh sách người dùng từ localStorage
-        const storedUsers = JSON.parse(localStorage.getItem("cozyhome-users")) || [];
-
-        console.log("Dữ liệu người dùng:", storedUsers);
-
-        // Tìm kiếm người dùng trong danh sách
-        const user = storedUsers.find(user => user.email === email && user.password === password);
-        console.log("Kết quả tìm kiếm người dùng:", user);
-
-        if (user) {
-            console.log("Đăng nhập thành công!");
-
-            // Lưu thông tin đăng nhập vào localStorage
-            localStorage.setItem("loggedInUser", JSON.stringify({
-                email: user.email,
-                role: user.role
-            }));
-
-            // Điều hướng dựa trên vai trò
-            if (user.role === "admin") {
-                window.location.href = "/pages/admin/dashboard.html";
-            } else if (user.role === "landlord") {
-                window.location.href = "/pages/landlord/room/index.html";
-            } else if (user.role === "tenant") {
-                window.location.href = "/pages/tenant/account.html";
-            }
+  
+    // Toggle password visibility
+    togglePassword.addEventListener("click", () => {
+      const isPasswordVisible = passwordInput.type === "password";
+      passwordInput.type = isPasswordVisible ? "text" : "password";
+      togglePassword.innerHTML = `<i class="fas ${isPasswordVisible ? 'fa-eye-slash' : 'fa-eye'}"></i>`;
+    });
+  
+    // Handle login form submission
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+  
+      const username = document.getElementById("username").value.trim();
+      const password = passwordInput.value;
+  
+      if (!username || !password) {
+        loginError.textContent = "Vui lòng nhập đầy đủ thông tin!";
+        return;
+      }
+  
+      // Retrieve users from localStorage
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+  
+      // Find user matching the entered credentials
+      const user = users.find(
+        u => u.user_name === username && u.hashed_password === password
+      );
+  
+      if (user) {
+        // Login successful, redirect based on role
+        if (user.role_id === "3") {
+          alert("Đăng nhập thành công! Chào mừng chủ trọ.");
+          window.location.href = "landlord-home.html"; // Redirect to landlord page
+        } else if (user.role_id === "4") {
+          alert("Đăng nhập thành công! Chào mừng người thuê.");
+          window.location.href = "tenant-home.html"; // Redirect to tenant page
         } else {
-            loginError.textContent = "Email hoặc mật khẩu không đúng.";
-            console.log("Email hoặc mật khẩu không đúng.");
+          alert("Đăng nhập thành công! Chào mừng quản trị viên.");
+          window.location.href = "admin-dashboard.html"; // Redirect to admin page
         }
+      } else {
+        // Login failed
+        loginError.textContent = "Tên đăng nhập hoặc mật khẩu không chính xác!";
+      }
     });
-
-    // Reload trang khi người dùng sử dụng nút quay lại trình duyệt
-    window.addEventListener('popstate', function (event) {
-        window.location.reload();
-    });
-});
+  });
+  

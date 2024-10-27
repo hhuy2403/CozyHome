@@ -1,16 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-    if (!loggedInUser) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Bạn cần đăng nhập',
-            text: 'Vui lòng đăng nhập để truy cập trang này.',
-            confirmButtonText: 'OK'
-        }).then(() => {
-            window.location.href = "/pages/auth/login.html";
-        });
-        return;
-    }
+
 
     renderDebtList();
     renderUnpaidBillsList();

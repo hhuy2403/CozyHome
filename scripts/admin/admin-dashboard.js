@@ -1,14 +1,6 @@
 let dashboardChart; // Khai báo biến cho biểu đồ
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Kiểm tra xem người dùng đã đăng nhập chưa
-    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-    if (!loggedInUser) {
-        // Nếu không đăng nhập, chuyển hướng đến trang đăng nhập
-        window.location.href = "/pages/auth/login.html";
-        return;
-    }
-
     // Tải nội dung header và footer
     fetch('header.html')
         .then(response => response.text())

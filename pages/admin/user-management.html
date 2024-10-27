@@ -34,16 +34,46 @@
             </div>
             <div id="createUserForm" class="cozyhome-create-user-form" style="display: none;">
                 <h3><i class="fas fa-plus-circle"></i> Tạo Tài Khoản Mới</h3>
-                <label for="newUserEmail">Nhập email: </label>
+            
+                <label for="newFullName">Họ và tên: </label>
+                <input type="text" id="newFullName" placeholder="Họ và tên" required>
+            
+                <label for="newNickName">Tên gọi khác (nếu có): </label>
+                <input type="text" id="newNickName" placeholder="Tên gọi khác">
+            
+                <label for="newUserName">Tên đăng nhập: </label>
+                <input type="text" id="newUserName" placeholder="Tên đăng nhập" required>
+            
+                <label for="newUserEmail">Email: </label>
                 <input type="email" id="newUserEmail" placeholder="Email" required>
-                <label for="newUserPassword">Nhập password: </label>
-                <input type="password" id="newUserPassword" placeholder="Mật khẩu" required>
+            
+                <label for="newUserPhone">Số điện thoại: </label>
+                <input type="tel" id="newUserPhone" placeholder="Số điện thoại" required>
+            
+                <label for="newPassword">Mật khẩu: </label>
+                <input type="password" id="newPassword" placeholder="Mật khẩu" required>
+            
+                <label for="newDateOfBirth">Ngày sinh: </label>
+                <input type="date" id="newDateOfBirth" required>
+            
+                <label for="newGender">Giới tính: </label>
+                <select id="newGender">
+                    <option value="0">Nam</option>
+                    <option value="1">Nữ</option>
+                </select>
+            
+                <label for="newAddress">Địa chỉ: </label>
+                <input type="text" id="newAddress" placeholder="Địa chỉ">
+            
+                <label for="newAvatarUrl">URL Ảnh đại diện: </label>
+                <input type="url" id="newAvatarUrl" placeholder="URL ảnh đại diện">
+            
                 <label for="newUserRole">Phân quyền: </label>
                 <select id="newUserRole">
-                    <option value="tenant">Người Thuê</option>
-                    <option value="landlord">Chủ Trọ</option>
-                    <option value="admin">Quản Trị Viên</option>
+                    <!-- Các vai trò sẽ được tải động từ API -->
                 </select>
+                
+            
                 <div class="cozyhome-form-actions">
                     <button class="cozyhome-btn cozyhome-btn-primary" onclick="createUser()">
                         <i class="fas fa-save"></i> Tạo
@@ -53,6 +83,8 @@
                     </button>
                 </div>
             </div>
+            
+            
 
             <div class="cozyhome-user-list">
                 <h3><i class="fas fa-list"></i> Danh Sách Người Dùng</h3>

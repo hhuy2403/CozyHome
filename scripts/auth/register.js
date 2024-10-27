@@ -1,100 +1,88 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
+// Wait for the DOM to load before executing
+document.addEventListener("DOMContentLoaded", () => {
+  const registerForm = document.getElementById("registerForm");
+  const togglePassword = document.getElementById("togglePassword");
+  const toggleConfirmPassword = document.getElementById("toggleConfirmPassword");
+  const passwordInput = document.getElementById("password");
+  const confirmPasswordInput = document.getElementById("confirmPassword");
+  const registerError = document.getElementById("registerError");
 
-    if (navToggle && navLinks) {
-        navToggle.addEventListener('click', function () {
-            navLinks.classList.toggle('show');
-        });
+  // Toggle password visibility
+  togglePassword.addEventListener("click", () => {
+    toggleVisibility(passwordInput, togglePassword);
+  });
+
+  toggleConfirmPassword.addEventListener("click", () => {
+    toggleVisibility(confirmPasswordInput, toggleConfirmPassword);
+  });
+
+  // Toggle input visibility helper function
+  function toggleVisibility(input, toggleButton) {
+    const isPasswordVisible = input.type === "password";
+    input.type = isPasswordVisible ? "text" : "password";
+    toggleButton.innerHTML = `<i class="fas ${isPasswordVisible ? 'fa-eye-slash' : 'fa-eye'}"></i>`;
+  }
+
+  // Form submission handler
+  registerForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const userName = document.getElementById("userName").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = passwordInput.value;
+    const confirmPassword = confirmPasswordInput.value;
+    const role = document.getElementById("role").value;
+
+    if (!validateForm(userName, email, password, confirmPassword)) {
+      return;
     }
 
-    const registerForm = document.getElementById("registerForm");
-    const registerError = document.getElementById("registerError");
+    const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    // Xử lý ẩn/hiện mật khẩu
-    const passwordInput = document.getElementById("password");
-    const confirmPasswordInput = document.getElementById("confirmPassword");
-    const togglePassword = document.getElementById("togglePassword");
-    const toggleConfirmPassword = document.getElementById("toggleConfirmPassword");
+    // Check if the username or email already exists
+    if (users.some(user => user.user_name === userName || user.email_address === email)) {
+      registerError.textContent = "Tên đăng nhập hoặc email đã tồn tại!";
+      return;
+    }
 
-    togglePassword.addEventListener("click", function() {
-        const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
-        passwordInput.setAttribute("type", type);
-        this.querySelector("i").classList.toggle("fa-eye");
-        this.querySelector("i").classList.toggle("fa-eye-slash");
-    });
+    // Save user data
+    users.push({ user_name: userName, email_address: email, hashed_password: password, role_id: role });
+    localStorage.setItem("users", JSON.stringify(users));
 
-    toggleConfirmPassword.addEventListener("click", function() {
-        const type = confirmPasswordInput.getAttribute("type") === "password" ? "text" : "password";
-        confirmPasswordInput.setAttribute("type", type);
-        this.querySelector("i").classList.toggle("fa-eye");
-        this.querySelector("i").classList.toggle("fa-eye-slash");
-    });
+    alert("Đăng ký thành công!");
+    window.location.href = "login.html";
+  });
 
+  // Form validation function
+  function validateForm(userName, email, password, confirmPassword) {
+    registerError.textContent = "";
 
-    // Regular expression for validating an email
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailPattern.test(email)) {
+      registerError.textContent = "Email không hợp lệ!";
+      return false;
+    }
 
-    // Xử lý sự kiện khi nhấn đăng ký
-    registerForm.addEventListener("submit", function(event) {
-        event.preventDefault();
-        const email = document.getElementById("email").value.trim();
-        const password = document.getElementById("password").value;
-        const confirmPassword = document.getElementById("confirmPassword").value;
+    if (password.length < 6) {
+      registerError.textContent = "Mật khẩu phải có ít nhất 6 ký tự!";
+      return false;
+    }
 
-        // Reset lỗi trước đó
-        registerError.textContent = "";
+    if (password !== confirmPassword) {
+      registerError.textContent = "Mật khẩu không khớp!";
+      return false;
+    }
 
-        // Kiểm tra tính hợp lệ của email và mật khẩu
-        if (!email) {
-            registerError.textContent = "Vui lòng nhập email.";
-            return;
-        }
+    if (!userName || !email || !password || !confirmPassword) {
+      registerError.textContent = "Vui lòng điền đầy đủ thông tin!";
+      return false;
+    }
 
-        if (!emailRegex.test(email)) {
-            registerError.textContent = "Email không hợp lệ.";
-            return;
-        }
+    if (document.getElementById("role").value === "") {
+      registerError.textContent = "Vui lòng chọn vai trò!";
+      return false;
+    }
 
-        if (!password) {
-            registerError.textContent = "Vui lòng nhập mật khẩu.";
-            return;
-        }
-
-        if (password.length < 6) {
-            registerError.textContent = "Mật khẩu phải có ít nhất 6 ký tự.";
-            return;
-        }
-
-        if (password !== confirmPassword) {
-            registerError.textContent = "Mật khẩu và nhập lại mật khẩu không khớp.";
-            return;
-        }
-
-        // Lấy danh sách người dùng từ localStorage hoặc tạo mới nếu chưa có
-        const users = JSON.parse(localStorage.getItem("cozyhome-users")) || [];
-
-        // Kiểm tra xem email đã tồn tại chưa
-        const userExists = users.some(user => user.email === email);
-        if (userExists) {
-            registerError.textContent = "Email đã tồn tại. Vui lòng sử dụng email khác.";
-            return;
-        }
-
-        // Mặc định vai trò là "landlord" khi người dùng đăng ký
-        const newUser = { email, password, role: "landlord" };
-        users.push(newUser);
-
-        // Lưu danh sách người dùng lại vào localStorage
-        localStorage.setItem("cozyhome-users", JSON.stringify(users));
-
-        registerError.textContent = "";
-        alert("Đăng ký thành công! Bạn có thể đăng nhập ngay.");
-        window.location.href = "/pages/auth/login.html";
-    });
-
-    // Reload trang khi người dùng sử dụng nút quay lại trình duyệt
-    window.addEventListener('popstate', function(event) {
-        window.location.reload();
-    });
+    return true;
+  }
 });
