@@ -1,103 +1,103 @@
-document.addEventListener('DOMContentLoaded', function () {
-    fetch('../sidebar.html')
-      .then((response) => response.text())
-      .then((data) => {
-        document.getElementById('sidebar-container').innerHTML = data;
-      })
-      .catch((error) => console.error('Error loading sidebar:', error));
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  const quickAddRoomForm = document.getElementById("quickAddRoomForm");
+  const saveRoomBtn = document.getElementById("saveRoomBtn");
+  const houseSelect = document.getElementById("house");
 
-  // Hàm load danh sách nhà từ localStorage và thêm vào dropdown
-  function loadHouseData() {
-    const houseSelect = document.getElementById('house');
-    const houseData = JSON.parse(localStorage.getItem('houseData')) || [];
+  const currentUser = JSON.parse(sessionStorage.getItem("currentUser")) || 
+                      JSON.parse(localStorage.getItem("currentUser"));
+  const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    houseSelect.innerHTML = ''; // Xóa các option cũ trước khi thêm mới
-    houseData.forEach((house) => {
-      const option = document.createElement('option');
-      option.value = house.houseName;
-      option.textContent = house.houseName;
-      houseSelect.appendChild(option);
-    });
+  // Generate unique ID for each room
+  function generateRoomId() {
+      return 'room_' + new Date().getTime() + Math.floor(Math.random() * 1000);
   }
 
-  // Gọi hàm loadHouseData khi trang được load
-  window.onload = function () {
-    loadHouseData();
-  };
+  // Load homes associated with the logged-in user
+  function loadHomes() {
+      const user = users.find(user => user.id === currentUser.id);
+      if (user && user.homes) {
+          user.homes.forEach(home => {
+              const option = document.createElement("option");
+              option.value = home.id;
+              option.textContent = home.name;
+              houseSelect.appendChild(option);
+          });
+      }
+  }
 
-  document
-    .getElementById('saveRoomBtn')
-    .addEventListener('click', function () {
-      const startRoom = parseInt(
-        document.getElementById('startRoom').value
-      );
-      const endRoom = parseInt(document.getElementById('endRoom').value);
-      const houseName = document.getElementById('house').value;
-      const price = parseInt(document.getElementById('price').value);
-      const length = parseInt(document.getElementById('length').value);
-      const width = parseInt(document.getElementById('width').value);
-      const maxPeople = parseInt(
-        document.getElementById('maxPeople').value
-      );
-      const maleAllowed = document.getElementById('maleAllowed').checked;
-      const femaleAllowed =
-        document.getElementById('femaleAllowed').checked;
-      const description = document.getElementById('description').value;
-
-      if (
-        !startRoom ||
-        !endRoom ||
-        !price ||
-        !length ||
-        !width ||
-        !maxPeople ||
-        startRoom > endRoom
-      ) {
-        alert(
-          'Vui lòng nhập đầy đủ thông tin và đảm bảo phòng bắt đầu phải nhỏ hơn hoặc bằng phòng kết thúc.'
-        );
-        return;
+  // Validate form input and check for duplicate rooms
+  function validateForm(startRoom, endRoom, home) {
+      if (!startRoom || !endRoom || startRoom > endRoom) {
+          alert("Vui lòng nhập khoảng phòng hợp lệ.");
+          return false;
       }
 
-      let rooms = JSON.parse(localStorage.getItem('roomData')) || [];
+      const existingRoomNumbers = home.rooms ? home.rooms.map(room => room.roomNumber) : [];
 
-      // Kiểm tra xem phòng trong khoảng đã tồn tại hay chưa
       for (let i = startRoom; i <= endRoom; i++) {
-        if (
-          rooms.some(
-            (room) => room.roomNumber === i && room.houseName === houseName
-          )
-        ) {
-          alert(
-            `Phòng số ${i} tại ${houseName} đã tồn tại. Vui lòng chọn số phòng khác.`
-          );
-          return;
-        }
+          if (existingRoomNumbers.includes(i.toString())) {
+              alert(`Phòng số ${i} đã tồn tại trong nhà này.`);
+              return false;
+          }
+      }
+      return true;
+  }
+
+  // Save the new rooms to the selected home
+  function saveRooms() {
+      const startRoom = parseInt(document.getElementById("startRoom").value);
+      const endRoom = parseInt(document.getElementById("endRoom").value);
+      const houseId = houseSelect.value;
+      const price = parseFloat(document.getElementById("price").value);
+      const length = parseFloat(document.getElementById("length").value);
+      const width = parseFloat(document.getElementById("width").value);
+      const maxPeople = parseInt(document.getElementById("maxPeople").value);
+      const maleAllowed = document.getElementById("maleAllowed").checked;
+      const femaleAllowed = document.getElementById("femaleAllowed").checked;
+      const description = document.getElementById("description").value.trim();
+
+      // Find the user's home by ID
+      const userIndex = users.findIndex(user => user.id === currentUser.id);
+      const home = users[userIndex].homes.find(home => home.id === houseId);
+
+      if (!home.rooms) {
+          home.rooms = []; // Initialize rooms array if not present
       }
 
-      // Thêm các phòng vào roomData
+      // Validate input and ensure no duplicates
+      if (!validateForm(startRoom, endRoom, home)) return;
+
+      // Create and save rooms in the specified range
       for (let i = startRoom; i <= endRoom; i++) {
-        rooms.push({
-          roomNumber: i,
-          houseName: houseName,
-          price: price,
-          dimensions: {
-            length: length,
-            width: width,
-          },
-          maxPeople: maxPeople,
-          allowedGender: {
-            male: maleAllowed,
-            female: femaleAllowed,
-          },
-          description: description,
-          isRented: false, // Thêm thuộc tính isRented để quản lý tình trạng cho thuê
-          hasPaid: false, // Thêm thuộc tính hasPaid để quản lý tình trạng thanh toán
-        });
+          const newRoom = {
+              id: generateRoomId(),
+              roomNumber: i.toString(),
+              price: price,
+              length: length,
+              width: width,
+              maxPeople: maxPeople,
+              maleAllowed: maleAllowed,
+              femaleAllowed: femaleAllowed,
+              description: description
+          };
+          home.rooms.push(newRoom);
       }
 
-      localStorage.setItem('roomData', JSON.stringify(rooms));
-      alert('Phòng đã được thêm thành công!');
-      window.location.href = 'index.html'; // Quay lại trang chính sau khi lưu
-    });
+      // Save the updated users data to localStorage
+      localStorage.setItem("users", JSON.stringify(users));
+
+      alert("Các phòng mới đã được thêm thành công!");
+
+      // Reset the form
+      quickAddRoomForm.reset();
+  }
+
+  // Attach event listener to the save button
+  saveRoomBtn.addEventListener("click", (e) => {
+      e.preventDefault(); // Prevent form submission
+      saveRooms();
+  });
+
+  // Load homes when the page loads
+  loadHomes();
+});

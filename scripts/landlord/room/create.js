@@ -1,130 +1,109 @@
-document.addEventListener('DOMContentLoaded', function () {
-    fetch('../sidebar.html')
-      .then((response) => response.text())
-      .then((data) => {
-        document.getElementById('sidebar-container').innerHTML = data;
-      })
-      .catch((error) => console.error('Error loading sidebar:', error));
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  const createRoomForm = document.getElementById("createRoomForm");
+  const saveRoomBtn = document.getElementById("saveRoomBtn");
+  const houseSelect = document.getElementById("house");
 
-  // Hàm load danh sách nhà từ localStorage vào dropdown
-  function loadHouseData() {
-    const houseSelect = document.getElementById('house');
-    const houseData = JSON.parse(localStorage.getItem('houseData')) || [];
+  const currentUser = JSON.parse(sessionStorage.getItem("currentUser")) || 
+                      JSON.parse(localStorage.getItem("currentUser"));
+  const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    houseSelect.innerHTML = ''; // Xóa các option cũ trước khi thêm mới
-    houseData.forEach((house) => {
-      const option = document.createElement('option');
-      option.value = house.houseName;
-      option.textContent = house.houseName;
-      houseSelect.appendChild(option);
-    });
+  // Generate a unique ID for each room
+  function generateRoomId() {
+      return 'room_' + new Date().getTime();
   }
 
-  // Gọi hàm loadHouseData khi trang được load
-  window.onload = function () {
-    loadHouseData();
-  };
+  // Load homes associated with the current user
+  function loadHomes() {
+      const user = users.find(user => user.id === currentUser.id);
+      if (user && user.homes) {
+          user.homes.forEach(home => {
+              const option = document.createElement("option");
+              option.value = home.id;
+              option.textContent = home.name;
+              houseSelect.appendChild(option);
+          });
+      }
+  }
 
-  document
-    .getElementById('saveRoomBtn')
-    .addEventListener('click', function () {
-      const roomNumber = parseInt(
-        document.getElementById('roomNumber').value
-      );
-      const order = parseInt(document.getElementById('order').value);
-      const houseName = document.getElementById('house').value;
-      const price = parseInt(document.getElementById('price').value);
-      const length = parseInt(document.getElementById('length').value);
-      const width = parseInt(document.getElementById('width').value);
-      const maxPeople = parseInt(
-        document.getElementById('maxPeople').value
-      );
-      const maleAllowed = document.getElementById('maleAllowed').checked;
-      const femaleAllowed =
-        document.getElementById('femaleAllowed').checked;
-      const description = document.getElementById('description').value;
-      const image = document.getElementById('fileUpload').textContent;
+  // Validate form data
+  function validateForm() {
+      const roomNumber = document.getElementById("roomNumber").value.trim();
+      const order = document.getElementById("order").value.trim();
+      const houseId = houseSelect.value;
+      const price = document.getElementById("price").value.trim();
+      const length = document.getElementById("length").value.trim();
+      const width = document.getElementById("width").value.trim();
+      const maxPeople = document.getElementById("maxPeople").value.trim();
 
-      if (
-        !roomNumber ||
-        !order ||
-        !price ||
-        !length ||
-        !width ||
-        !maxPeople ||
-        !houseName
-      ) {
-        alert('Vui lòng nhập đầy đủ thông tin.');
-        return;
+      if (!roomNumber || !order || !houseId || !price || !length || !width || !maxPeople) {
+          alert("Vui lòng điền đầy đủ tất cả các thông tin bắt buộc.");
+          return false;
       }
 
-      let rooms = JSON.parse(localStorage.getItem('roomData')) || [];
+      // Check if the room number already exists in the selected home
+      const user = users.find(user => user.id === currentUser.id);
+      const home = user.homes.find(home => home.id === houseId);
 
-      if (
-        rooms.some(
-          (room) =>
-            room.roomNumber === roomNumber && room.houseName === houseName
-        )
-      ) {
-        alert(
-          `Phòng số ${roomNumber} tại ${houseName} đã tồn tại. Vui lòng chọn số phòng khác.`
-        );
-        return;
+      if (home.rooms && home.rooms.some(room => room.roomNumber === roomNumber)) {
+          alert(`Phòng số "${roomNumber}" đã tồn tại trong nhà này.`);
+          return false;
       }
 
-      rooms.push({
-        roomNumber: roomNumber,
-        order: order,
-        houseName: houseName,
-        price: price,
-        dimensions: {
-          length: length,
-          width: width,
-        },
-        maxPeople: maxPeople,
-        allowedGender: {
-          male: maleAllowed,
-          female: femaleAllowed,
-        },
-        description: description,
-        image: image,
-        isRented: false, // Thêm thuộc tính để phòng chưa cho thuê
-        hasPaid: false, // Thêm thuộc tính để phòng chưa thanh toán
-      });
+      return true;
+  }
 
-      localStorage.setItem('roomData', JSON.stringify(rooms));
-      alert('Phòng đã được thêm thành công!');
-      window.location.href = 'index.html'; // Quay lại trang chính sau khi lưu
-    });
+  // Save the new room to the selected home
+  function saveRoom() {
+      if (!validateForm()) return; // Stop if form is invalid
 
-  // Sự kiện kéo thả file để upload hình ảnh
-  document
-    .getElementById('fileUpload')
-    .addEventListener('dragover', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      this.style.backgroundColor = '#f8f8f8';
-    });
+      const roomNumber = document.getElementById("roomNumber").value.trim();
+      const order = document.getElementById("order").value.trim();
+      const houseId = houseSelect.value;
+      const price = document.getElementById("price").value.trim();
+      const length = document.getElementById("length").value.trim();
+      const width = document.getElementById("width").value.trim();
+      const maxPeople = document.getElementById("maxPeople").value.trim();
+      const maleAllowed = document.getElementById("maleAllowed").checked;
+      const femaleAllowed = document.getElementById("femaleAllowed").checked;
+      const description = document.getElementById("description").value.trim();
 
-  document
-    .getElementById('fileUpload')
-    .addEventListener('dragleave', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      this.style.backgroundColor = '#fff';
-    });
+      const newRoom = {
+          id: generateRoomId(),
+          roomNumber: roomNumber,
+          order: parseInt(order),
+          price: parseFloat(price),
+          length: parseFloat(length),
+          width: parseFloat(width),
+          maxPeople: parseInt(maxPeople),
+          maleAllowed: maleAllowed,
+          femaleAllowed: femaleAllowed,
+          description: description
+      };
 
-  document
-    .getElementById('fileUpload')
-    .addEventListener('drop', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      this.style.backgroundColor = '#fff';
-      let files = e.dataTransfer.files;
-      if (files.length) {
-        this.textContent = files[0].name;
-      } else {
-        this.textContent = 'Kéo tập tin cần upload thả vào đây';
+      // Find the current user's home and add the new room
+      const userIndex = users.findIndex(user => user.id === currentUser.id);
+      const home = users[userIndex].homes.find(home => home.id === houseId);
+
+      if (!home.rooms) {
+          home.rooms = []; // Initialize rooms array if not present
       }
-    });
+      home.rooms.push(newRoom);
+
+      // Save the updated users array to localStorage
+      localStorage.setItem("users", JSON.stringify(users));
+
+      alert("Phòng mới đã được lưu thành công!");
+
+      // Reset the form after saving
+      createRoomForm.reset();
+  }
+
+  // Attach event listener to the save button
+  saveRoomBtn.addEventListener("click", (e) => {
+      e.preventDefault(); // Prevent form submission
+      saveRoom();
+  });
+
+  // Load homes when the page loads
+  loadHomes();
+});

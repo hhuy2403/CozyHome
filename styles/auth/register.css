@@ -60,6 +60,10 @@ a:hover {
     color: #543b2a;
 }
 
+.register-nav-links.active {
+    display: flex;
+}
+
 .register-nav-toggle {
     display: none;
     background: none;
@@ -175,7 +179,8 @@ a:hover {
     margin-bottom: 5px;
 }
 
-#password, #confirmPassword {
+#password,
+#confirmPassword {
     flex: 1;
     padding-right: 40px;
     box-sizing: border-box;

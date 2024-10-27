@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,119 +12,90 @@
     <script src="/scripts/admin/user-management.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
 <body class="cozyhome-user-management-page">
 
-<!-- Import Header -->
-<div id="header-placeholder"></div>
+    <!-- Import Header -->
+    <div id="header-placeholder"></div>
 
-<!-- Main Content -->
-<main class="cozyhome-main">
-    <div class="cozyhome-container">
-        <div class="cozyhome-user-management">
-            <h2 class="cozyhome-user-management-title">
-                <i class="fas fa-users"></i> Quản Lý Người Dùng
-            </h2>
-            <div class="cozyhome-form-group">
-                <button class="cozyhome-btn cozyhome-btn-primary" onclick="showCreateUserForm()">
-                    <i class="fas fa-user-plus"></i> Tạo Tài Khoản
-                </button>
-            </div>
-            <div class="cozyhome-form-group">
-                <label for="userSearch"><i class="fas fa-search"></i> Tìm kiếm người dùng:</label>
-                <input type="text" id="userSearch" placeholder="Nhập email để tìm kiếm" oninput="searchUser()">
-            </div>
-            <div id="createUserForm" class="cozyhome-create-user-form" style="display: none;">
-                <h3><i class="fas fa-plus-circle"></i> Tạo Tài Khoản Mới</h3>
-            
-                <label for="newFullName">Họ và tên: </label>
-                <input type="text" id="newFullName" placeholder="Họ và tên" required>
-            
-                <label for="newNickName">Tên gọi khác (nếu có): </label>
-                <input type="text" id="newNickName" placeholder="Tên gọi khác">
-            
-                <label for="newUserName">Tên đăng nhập: </label>
-                <input type="text" id="newUserName" placeholder="Tên đăng nhập" required>
-            
-                <label for="newUserEmail">Email: </label>
-                <input type="email" id="newUserEmail" placeholder="Email" required>
-            
-                <label for="newUserPhone">Số điện thoại: </label>
-                <input type="tel" id="newUserPhone" placeholder="Số điện thoại" required>
-            
-                <label for="newPassword">Mật khẩu: </label>
-                <input type="password" id="newPassword" placeholder="Mật khẩu" required>
-            
-                <label for="newDateOfBirth">Ngày sinh: </label>
-                <input type="date" id="newDateOfBirth" required>
-            
-                <label for="newGender">Giới tính: </label>
-                <select id="newGender">
-                    <option value="0">Nam</option>
-                    <option value="1">Nữ</option>
-                </select>
-            
-                <label for="newAddress">Địa chỉ: </label>
-                <input type="text" id="newAddress" placeholder="Địa chỉ">
-            
-                <label for="newAvatarUrl">URL Ảnh đại diện: </label>
-                <input type="url" id="newAvatarUrl" placeholder="URL ảnh đại diện">
-            
-                <label for="newUserRole">Phân quyền: </label>
-                <select id="newUserRole">
-                    <!-- Các vai trò sẽ được tải động từ API -->
-                </select>
-                
-            
-                <div class="cozyhome-form-actions">
-                    <button class="cozyhome-btn cozyhome-btn-primary" onclick="createUser()">
-                        <i class="fas fa-save"></i> Tạo
-                    </button>
-                    <button class="cozyhome-btn cozyhome-btn-secondary" onclick="hideCreateUserForm()">
-                        <i class="fas fa-times"></i> Hủy
+    <!-- Main Content -->
+    <main class="cozyhome-main">
+        <div class="cozyhome-container">
+            <div class="cozyhome-user-management">
+                <h2 class="cozyhome-user-management-title">
+                    <i class="fas fa-users"></i> Quản Lý Người Dùng
+                </h2>
+                <div class="cozyhome-form-group">
+                    <button class="cozyhome-btn cozyhome-btn-primary" onclick="showCreateUserForm()">
+                        <i class="fas fa-user-plus"></i> Tạo Tài Khoản
                     </button>
                 </div>
-            </div>
-            
-            
+                <div class="cozyhome-form-group">
+                    <label for="userSearch"><i class="fas fa-search"></i> Tìm kiếm người dùng:</label>
+                    <input type="text" id="userSearch" placeholder="Nhập email để tìm kiếm" oninput="searchUser()">
+                </div>
+                <div id="createUserForm" class="cozyhome-create-user-form" style="display: none;">
+                    <h3><i class="fas fa-plus-circle"></i> Tạo Tài Khoản Mới</h3>
 
-            <div class="cozyhome-user-list">
-                <h3><i class="fas fa-list"></i> Danh Sách Người Dùng</h3>
-                <table class="cozyhome-user-table">
-                    <thead>
-                    <tr>
-                        <th><i class="fas fa-envelope"></i> Email</th>
-                        <th><i class="fas fa-user-tag"></i> Vai Trò</th>
-                        <th><i class="fas fa-tools"></i> Thao Tác</th>
-                    </tr>
-                    </thead>
-                    <tbody id="userList">
-                    <!-- Danh sách người dùng sẽ được hiển thị tại đây -->
-                    </tbody>
-                </table>
+                    <input type="text" id="newFullName" placeholder="Họ và tên" required />
+                    <input type="text" id="newUserName" placeholder="Tên đăng nhập" required />
+                    <input type="email" id="newUserEmail" placeholder="Email" required />
+                    <input type="password" id="newPassword" placeholder="Mật khẩu" required />
+                    <input type="tel" id="newUserPhone" placeholder="Số điện thoại" required />
+
+                    <select id="newUserRole">
+                        <option value="1">Quản Trị Viên</option>
+                        <option value="2">Chủ Trọ</option>
+                        <option value="3">Người Thuê</option>
+                    </select>
+
+                    <button class="cozyhome-btn-primary" id="saveButton">
+                        <i class="fas fa-save"></i> Tạo
+                    </button>
+                    <button class="cozyhome-btn-danger" onclick="hideCreateUserForm()">Hủy</button>                    
+                </div>
+
+
+
+                <div class="cozyhome-user-list">
+                    <h3><i class="fas fa-list"></i> Danh Sách Người Dùng</h3>
+                    <table class="cozyhome-user-table">
+                        <thead>
+                            <tr>
+                                <th><i class="fas fa-envelope"></i> Email</th>
+                                <th><i class="fas fa-user-tag"></i> Vai Trò</th>
+                                <th><i class="fas fa-tools"></i> Thao Tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userList">
+                            <!-- Danh sách người dùng sẽ được hiển thị tại đây -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-</main>
+    </main>
 
-<!-- Import Footer -->
-<div id="footer-placeholder"></div>
-<script src="/scripts/admin/header.js" defer></script>
-<script>
-    // Hàm để tải nội dung của header và footer từ các file riêng
-    document.addEventListener("DOMContentLoaded", function() {
-        fetch('header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-            });
+    <!-- Import Footer -->
+    <div id="footer-placeholder"></div>
+    <script src="/scripts/admin/header.js" defer></script>
+    <script>
+        // Hàm để tải nội dung của header và footer từ các file riêng
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                });
 
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            });
-    });
-</script>
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                });
+        });
+    </script>
 
 </body>
+
 </html>

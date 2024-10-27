@@ -62,6 +62,10 @@ a:hover {
   color: #543b2a; 
 }
 
+.cozyhome-nav-links.active {
+  display: flex;
+}
+
 .cozyhome-nav-toggle {
   display: none;
   background: none;

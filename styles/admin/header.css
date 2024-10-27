@@ -1,9 +1,10 @@
 .cozyhome-header {
     background: #ffffff;
-    padding: 20px 30px;
+    padding: 10px 20px;
     color: #2a3f54; 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
-    position: sticky;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
     top: 0;
     z-index: 1000;
     transition: background 0.3s, box-shadow 0.3s;
@@ -30,25 +31,27 @@
 .cozyhome-menu-toggle {
     display: none;
     background: none;
+    margin-right: 30px;
     border: none;
-    color: #2a3f54; /* Màu chữ cho menu toggle */
+    color: #2a3f54; 
     font-size: 1.8em;
     cursor: pointer;
     transition: color 0.3s;
 }
 
 .cozyhome-menu-toggle:hover {
-    color: #1f2a38; /* Đổi sang màu tối hơn khi hover */
+    color: #1f2a38; 
 }
 
 .cozyhome-nav-links {
+    margin-right: 30px;
     list-style: none;
     display: flex;
     gap: 25px;
 }
 
 .cozyhome-nav-links a {
-    color: #2a3f54; /* Màu chữ cho các liên kết */
+    color: #2a3f54; 
     text-decoration: none;
     font-size: 1.1em;
     position: relative;

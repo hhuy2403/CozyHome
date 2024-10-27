@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const passwordInput = document.getElementById("password");
   const confirmPasswordInput = document.getElementById("confirmPassword");
   const registerError = document.getElementById("registerError");
+  navToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
 
   // Toggle password visibility
   togglePassword.addEventListener("click", () => {
@@ -45,13 +48,31 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    // Generate a unique user ID
+    const newUserId = generateUserId(users);
+
     // Save user data
-    users.push({ user_name: userName, email_address: email, hashed_password: password, role_id: role });
+    users.push({
+      id: newUserId, // Unique user ID
+      user_name: userName,
+      email_address: email,
+      hashed_password: password,
+      role_id: role
+    });
     localStorage.setItem("users", JSON.stringify(users));
 
     alert("Đăng ký thành công!");
     window.location.href = "login.html";
   });
+
+  // Generate a unique ID based on existing users
+  function generateUserId(users) {
+    if (users.length === 0) {
+      return 1; // Start with ID 1 if no users are registered
+    }
+    const maxId = Math.max(...users.map(user => user.id));
+    return maxId + 1; // Increment the highest ID by 1
+  }
 
   // Form validation function
   function validateForm(userName, email, password, confirmPassword) {
